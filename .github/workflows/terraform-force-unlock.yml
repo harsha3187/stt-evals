@@ -1,0 +1,146 @@
+name: Terraform Force Unlock
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to unlock'
+        required: true
+        type: choice
+        options:
+          - production
+          - integration
+      lock_id:
+        description: 'Lock ID to release (from error message)'
+        required: true
+        type: string
+      confirm:
+        description: 'Type "FORCE-UNLOCK" to confirm'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  force-unlock:
+    name: Force Unlock ${{ github.event.inputs.environment }}
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    
+    steps:
+      - name: Validate Confirmation
+        run: |
+          if [ "${{ github.event.inputs.confirm }}" != "FORCE-UNLOCK" ]; then
+            echo "❌ Confirmation failed. You must type 'FORCE-UNLOCK' exactly."
+            exit 1
+          fi
+          echo "✅ Confirmation validated"
+      
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: |
+            {
+              "clientId": "${{ secrets.AZURE_CLIENT_ID }}",
+              "clientSecret": "${{ secrets.AZURE_CLIENT_SECRET }}",
+              "tenantId": "${{ secrets.AZURE_TENANT_ID }}",
+              "subscriptionId": "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+            }
+          enable-AzPSSession: false
+      
+      - name: Set Terraform Azure Authentication
+        run: |
+          echo "ARM_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }}" >> $GITHUB_ENV
+          echo "ARM_CLIENT_SECRET=${{ secrets.AZURE_CLIENT_SECRET }}" >> $GITHUB_ENV
+          echo "ARM_TENANT_ID=${{ secrets.AZURE_TENANT_ID }}" >> $GITHUB_ENV
+          echo "ARM_SUBSCRIPTION_ID=${{ secrets.AZURE_SUBSCRIPTION_ID }}" >> $GITHUB_ENV
+      
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.0"
+      
+      - name: Determine State Key
+        id: state
+        run: |
+          echo "TF_STATE_KEY=${{ github.event.inputs.environment }}.tfstate" >> $GITHUB_OUTPUT
+      
+      - name: Configure Terraform Backend
+        working-directory: ./infra
+        run: |
+          cat > backend.tfbackend << EOF
+          resource_group_name  = "${{ secrets.TF_BACKEND_RESOURCE_GROUP }}"
+          storage_account_name = "${{ secrets.TF_BACKEND_STORAGE_ACCOUNT }}"
+          container_name       = "${{ secrets.TF_BACKEND_CONTAINER }}"
+          key                  = "${{ steps.state.outputs.TF_STATE_KEY }}"
+          use_azuread_auth     = true
+          EOF
+      
+      - name: Terraform Init
+        working-directory: ./infra
+        run: terraform init -backend-config=backend.tfbackend
+      
+      - name: Check Lock Status Before Unlock
+        working-directory: ./infra
+        continue-on-error: true
+        run: |
+          echo "🔍 Checking current lock status..."
+          terraform plan -input=false -lock-timeout=1s > /dev/null 2>&1
+          LOCK_CHECK=$?
+          if [ $LOCK_CHECK -eq 0 ]; then
+            echo "⚠️ WARNING: No lock detected. The state may have already been unlocked."
+          else
+            echo "🔒 Lock confirmed. Proceeding with force unlock..."
+          fi
+      
+      - name: Force Unlock Terraform State
+        working-directory: ./infra
+        run: |
+          echo "🔓 Force unlocking state with Lock ID: ${{ github.event.inputs.lock_id }}"
+          terraform force-unlock -force ${{ github.event.inputs.lock_id }}
+          echo "✅ Force unlock completed"
+      
+      - name: Verify Unlock Success
+        working-directory: ./infra
+        run: |
+          echo "🔍 Verifying state is unlocked..."
+          terraform plan -input=false -lock-timeout=30s > /dev/null 2>&1
+          VERIFY_CHECK=$?
+          if [ $VERIFY_CHECK -eq 0 ]; then
+            echo "✅ State successfully unlocked and accessible"
+          else
+            echo "❌ State may still be locked or inaccessible"
+            exit 1
+          fi
+      
+      - name: Generate Summary
+        if: always()
+        run: |
+          echo "## Terraform Force Unlock" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Environment:** ${{ github.event.inputs.environment }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Lock ID:** \`${{ github.event.inputs.lock_id }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Initiated by:** @${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ job.status }}" = "success" ]; then
+            echo "✅ **Status:** Successfully unlocked" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Next Steps" >> $GITHUB_STEP_SUMMARY
+            echo "- Retry your failed workflow" >> $GITHUB_STEP_SUMMARY
+            echo "- Monitor for any state inconsistencies" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Status:** Failed to unlock" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Troubleshooting" >> $GITHUB_STEP_SUMMARY
+            echo "- Verify the Lock ID is correct" >> $GITHUB_STEP_SUMMARY
+            echo "- Check if another operation is still running" >> $GITHUB_STEP_SUMMARY
+            echo "- Contact your Azure admin if issues persist" >> $GITHUB_STEP_SUMMARY
+          fi
+      
+      - name: Azure Logout
+        if: always()
+        run: az logout

@@ -1,0 +1,43 @@
+# Arabic Diarization Reference (Ground Truth)
+# Based on MGB-2/3, Arabic medical dialogue, and broadcast news datasets
+# Format: SPEAKER <file-id> <channel> <start-time> <duration> <ortho> <stype> <name> <conf>
+
+# Arabic medical consultation - file1
+SPEAKER arabic_medical_001 1 0.0 4.1 <NA> <NA> doctor_ar 1.0
+SPEAKER arabic_medical_001 1 4.5 2.8 <NA> <NA> patient_ar 1.0
+SPEAKER arabic_medical_001 1 7.8 3.5 <NA> <NA> doctor_ar 1.0
+SPEAKER arabic_medical_001 1 11.8 2.2 <NA> <NA> patient_ar 1.0
+SPEAKER arabic_medical_001 1 14.5 3.0 <NA> <NA> doctor_ar 1.0
+
+# Arabic news broadcast - file2 (MSA)
+SPEAKER arabic_news_001 1 0.0 5.2 <NA> <NA> anchor_msa 1.0
+SPEAKER arabic_news_001 1 6.0 4.8 <NA> <NA> reporter_field 1.0
+SPEAKER arabic_news_001 1 11.2 2.5 <NA> <NA> anchor_msa 1.0
+SPEAKER arabic_news_001 1 14.0 3.8 <NA> <NA> expert_guest 1.0
+SPEAKER arabic_news_001 1 18.2 1.5 <NA> <NA> anchor_msa 1.0
+
+# Levantine dialect conversation - file3
+SPEAKER levantine_talk_001 1 0.0 3.0 <NA> <NA> speaker_lev1 1.0
+SPEAKER levantine_talk_001 1 3.5 2.5 <NA> <NA> speaker_lev2 1.0
+SPEAKER levantine_talk_001 1 6.2 4.0 <NA> <NA> speaker_lev1 1.0
+SPEAKER levantine_talk_001 1 10.8 2.8 <NA> <NA> speaker_lev2 1.0
+SPEAKER levantine_talk_001 1 14.0 2.0 <NA> <NA> speaker_lev1 1.0
+
+# Egyptian dialect meeting - file4
+SPEAKER egyptian_meeting_001 1 0.0 2.5 <NA> <NA> moderator_eg 1.0
+SPEAKER egyptian_meeting_001 1 3.0 3.2 <NA> <NA> participant1_eg 1.0
+SPEAKER egyptian_meeting_001 1 6.8 2.8 <NA> <NA> participant2_eg 1.0
+SPEAKER egyptian_meeting_001 1 10.0 1.5 <NA> <NA> moderator_eg 1.0
+SPEAKER egyptian_meeting_001 1 12.0 3.5 <NA> <NA> participant1_eg 1.0
+
+# Code-switching scenario (Arabic-English) - file5
+SPEAKER codeswitching_001 1 0.0 3.8 <NA> <NA> bilingual_speaker1 1.0
+SPEAKER codeswitching_001 1 4.2 2.5 <NA> <NA> bilingual_speaker2 1.0
+SPEAKER codeswitching_001 1 7.0 4.2 <NA> <NA> bilingual_speaker1 1.0
+SPEAKER codeswitching_001 1 11.8 2.0 <NA> <NA> bilingual_speaker2 1.0
+
+# Gulf dialect interview - file6
+SPEAKER gulf_interview_001 1 0.0 2.2 <NA> <NA> interviewer_gulf 1.0
+SPEAKER gulf_interview_001 1 2.8 5.0 <NA> <NA> interviewee_gulf 1.0
+SPEAKER gulf_interview_001 1 8.2 1.8 <NA> <NA> interviewer_gulf 1.0
+SPEAKER gulf_interview_001 1 10.5 3.5 <NA> <NA> interviewee_gulf 1.0

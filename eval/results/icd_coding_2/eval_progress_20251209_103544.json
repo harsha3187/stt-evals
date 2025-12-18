@@ -1,0 +1,2684 @@
+{
+  "completed": 99,
+  "results": [
+    {
+      "sample_id": 0,
+      "clinical_text": "The patient has a history of right hand injury due to a fall three months ago, leading to limited range of motion and stiffness in the right hand.The patient presents with significant pain and stiffne...",
+      "ground_truth": [
+        "M24541"
+      ],
+      "predicted": [
+        "M24541",
+        "M62541",
+        "S6991XS"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M24541",
+          "desc": "Contracture, right hand",
+          "confidence": 0.93
+        },
+        {
+          "code": "M62541",
+          "desc": "Muscle wasting and atrophy, not elsewhere classified, right hand",
+          "confidence": 0.82
+        },
+        {
+          "code": "S6991XS",
+          "desc": "Unspecified injury of right wrist, hand and finger(s), sequela",
+          "confidence": 0.62
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 2,
+      "false_negatives": 0,
+      "processing_time_ms": 53452.378273010254,
+      "total_call_time_ms": 53452.489,
+      "timestamp": "2025-12-09T10:35:49.414383"
+    },
+    {
+      "sample_id": 1,
+      "clinical_text": "The patient has a history of left hand injury due to a fall two months ago.The patient complains of progressive stiffness and limited range of motion in the left hand.Physical examination reveals decr...",
+      "ground_truth": [
+        "M24542"
+      ],
+      "predicted": [
+        "M24542",
+        "S6992XS"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M24542",
+          "desc": "Contracture, left hand",
+          "confidence": 0.98
+        },
+        {
+          "code": "S6992XS",
+          "desc": "Unspecified injury of left wrist, hand and finger(s), sequela",
+          "confidence": 0.72
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "processing_time_ms": 29390.966653823853,
+      "total_call_time_ms": 29391.039,
+      "timestamp": "2025-12-09T10:36:42.867361"
+    },
+    {
+      "sample_id": 2,
+      "clinical_text": "The patient has a history of osteoarthritis in the right knee.The patient presents with limited range of motion, stiffness, and pain localized to the right knee joint.X-ray of the right knee shows joi...",
+      "ground_truth": [
+        "M24561"
+      ],
+      "predicted": [
+        "M24561"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M24561",
+          "desc": "Contracture, right knee",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 34596.997022628784,
+      "total_call_time_ms": 34597.347,
+      "timestamp": "2025-12-09T10:37:12.258687"
+    },
+    {
+      "sample_id": 3,
+      "clinical_text": "The patient has a history of ankylosing spondylitis, a condition known to cause ankylosis in various joints.The patient reports progressive stiffness and limited range of motion specifically in the le...",
+      "ground_truth": [
+        "M24652"
+      ],
+      "predicted": [
+        "M24652"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M24652",
+          "desc": "Ankylosis, left hip",
+          "confidence": 0.98
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 17234.262228012085,
+      "total_call_time_ms": 17234.477,
+      "timestamp": "2025-12-09T10:37:46.857185"
+    },
+    {
+      "sample_id": 4,
+      "clinical_text": "The patient has a history of osteoarthritis in the right knee and has been experiencing progressive stiffness and immobility in the joint.The patient complains of severe pain, swelling, and restricted...",
+      "ground_truth": [
+        "M24661"
+      ],
+      "predicted": [
+        "M24661",
+        "M1711"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M24661",
+          "desc": "Ankylosis, right knee",
+          "confidence": 0.95
+        },
+        {
+          "code": "M1711",
+          "desc": "Unilateral primary osteoarthritis, right knee",
+          "confidence": 0.68
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "processing_time_ms": 54433.170795440674,
+      "total_call_time_ms": 54433.43,
+      "timestamp": "2025-12-09T10:38:04.092548"
+    },
+    {
+      "sample_id": 5,
+      "clinical_text": "The patient has no history of shoulder trauma, arthritis, or previous shoulder surgeries.The patient presents with gradual onset left shoulder pain and swelling, limited range of motion, and tendernes...",
+      "ground_truth": [
+        "M25412"
+      ],
+      "predicted": [
+        "M25412"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25412",
+          "desc": "Effusion, left shoulder",
+          "confidence": 0.97
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 19314.39447402954,
+      "total_call_time_ms": 19314.607,
+      "timestamp": "2025-12-09T10:38:58.526938"
+    },
+    {
+      "sample_id": 6,
+      "clinical_text": "The patient has a history of osteoarthritis in the left elbow.The patient presents with swelling, pain, and limited range of motion in the left elbow joint.MRI of the left elbow shows effusion within ...",
+      "ground_truth": [
+        "M25422"
+      ],
+      "predicted": [
+        "M25422"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25422",
+          "desc": "Effusion, left elbow",
+          "confidence": 0.97
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 35283.470153808594,
+      "total_call_time_ms": 35284.221000000005,
+      "timestamp": "2025-12-09T10:39:17.842611"
+    },
+    {
+      "sample_id": 7,
+      "clinical_text": "The patient has a history of occasional wrist pain but no prior history of wrist injuries or chronic joint conditions.The patient presents with swelling, limited range of motion, and tenderness in the...",
+      "ground_truth": [
+        "M25432"
+      ],
+      "predicted": [
+        "M25432"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25432",
+          "desc": "Effusion, left wrist",
+          "confidence": 0.97
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 26068.238258361816,
+      "total_call_time_ms": 26068.551,
+      "timestamp": "2025-12-09T10:39:53.129045"
+    },
+    {
+      "sample_id": 8,
+      "clinical_text": "The patient has a history of osteoarthritis in the right hip.The patient presents with pain, swelling, and limited range of motion in the right hip.MRI of the right hip shows joint effusion with no si...",
+      "ground_truth": [
+        "M25451"
+      ],
+      "predicted": [
+        "M25451"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25451",
+          "desc": "Effusion, right hip",
+          "confidence": 0.97
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 27201.176404953003,
+      "total_call_time_ms": 27201.387,
+      "timestamp": "2025-12-09T10:40:19.198314"
+    },
+    {
+      "sample_id": 9,
+      "clinical_text": "The patient has a history of osteoarthritis in the left hip.The patient presents with progressive left hip pain, swelling, and limited range of motion.MRI of the left hip shows significant effusion wi...",
+      "ground_truth": [
+        "M25452"
+      ],
+      "predicted": [
+        "M25452"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25452",
+          "desc": "Effusion, left hip",
+          "confidence": 0.96
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 30988.592863082886,
+      "total_call_time_ms": 30988.84,
+      "timestamp": "2025-12-09T10:40:46.400378"
+    },
+    {
+      "sample_id": 10,
+      "clinical_text": "The patient has a history of osteoarthritis in the right knee.The patient presents with pain, swelling, and limited range of motion in the right knee.MRI of the right knee shows significant effusion w...",
+      "ground_truth": [
+        "M25461"
+      ],
+      "predicted": [
+        "M25461",
+        "M179"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25461",
+          "desc": "Effusion, right knee",
+          "confidence": 0.96
+        },
+        {
+          "code": "M179",
+          "desc": "Osteoarthritis of knee, unspecified",
+          "confidence": 0.7
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "processing_time_ms": 34081.655979156494,
+      "total_call_time_ms": 34081.86,
+      "timestamp": "2025-12-09T10:41:17.395972"
+    },
+    {
+      "sample_id": 11,
+      "clinical_text": "The patient has a history of osteoarthritis in the left knee.The patient complains of swelling, stiffness, and pain in the left knee.MRI of the left knee shows significant effusion within the joint.Ef...",
+      "ground_truth": [
+        "M25462"
+      ],
+      "predicted": [
+        "M25462",
+        "M25562"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25462",
+          "desc": "Effusion, left knee",
+          "confidence": 0.95
+        },
+        {
+          "code": "M25562",
+          "desc": "Pain in left knee",
+          "confidence": 0.85
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "processing_time_ms": 27536.28396987915,
+      "total_call_time_ms": 27536.404000000002,
+      "timestamp": "2025-12-09T10:41:51.478488"
+    },
+    {
+      "sample_id": 12,
+      "clinical_text": "The patient has a history of mild osteoarthritis in the right ankle.The patient complains of pain, swelling, and limited range of motion specifically in the right ankle.X-ray of the right ankle shows ...",
+      "ground_truth": [
+        "M25471"
+      ],
+      "predicted": [
+        "M25471"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25471",
+          "desc": "Effusion, right ankle",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 44777.576208114624,
+      "total_call_time_ms": 44777.855,
+      "timestamp": "2025-12-09T10:42:19.015376"
+    },
+    {
+      "sample_id": 13,
+      "clinical_text": "The patient has a history of occasional joint pain episodes without a specific pattern of joint involvement.The patient presents with generalized joint pain, describing it as a dull ache affecting mul...",
+      "ground_truth": [
+        "M2550"
+      ],
+      "predicted": [
+        "M2550"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M2550",
+          "desc": "Pain in unspecified joint",
+          "confidence": 0.92
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 23606.162786483765,
+      "total_call_time_ms": 23606.359999999997,
+      "timestamp": "2025-12-09T10:43:03.793982"
+    },
+    {
+      "sample_id": 14,
+      "clinical_text": "The patient has a history of occasional shoulder pain due to overuse during sports activities.The patient presents with sharp pain localized specifically in the left shoulder joint, which worsens upon...",
+      "ground_truth": [
+        "M25512"
+      ],
+      "predicted": [
+        "M25512"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25512",
+          "desc": "Pain in left shoulder",
+          "confidence": 0.93
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 29839.312076568604,
+      "total_call_time_ms": 29839.507999999998,
+      "timestamp": "2025-12-09T10:43:27.400855"
+    },
+    {
+      "sample_id": 15,
+      "clinical_text": "The patient has no history of shoulder injuries or joint-related conditions.The patient complains of persistent pain in the right shoulder, aggravated by movement and relieved by rest. There is no his...",
+      "ground_truth": [
+        "M25519"
+      ],
+      "predicted": [
+        "M25511"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25511",
+          "desc": "Pain in right shoulder",
+          "confidence": 0.9
+        }
+      ],
+      "exact_match": false,
+      "any_match": false,
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "processing_time_ms": 18342.90623664856,
+      "total_call_time_ms": 18343.121,
+      "timestamp": "2025-12-09T10:43:57.240948"
+    },
+    {
+      "sample_id": 16,
+      "clinical_text": "The patient has a history of occasional elbow pain due to repetitive strain from work-related activities.The patient presents with sharp pain localized to the right elbow joint, exacerbated by movemen...",
+      "ground_truth": [
+        "M25521"
+      ],
+      "predicted": [
+        "M7711"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M7711",
+          "desc": "Lateral epicondylitis, right elbow",
+          "confidence": 0.93
+        }
+      ],
+      "exact_match": false,
+      "any_match": false,
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "processing_time_ms": 39722.27692604065,
+      "total_call_time_ms": 39722.520000000004,
+      "timestamp": "2025-12-09T10:44:15.584619"
+    },
+    {
+      "sample_id": 17,
+      "clinical_text": "The patient has a history of occasional left elbow pain due to overuse during sports activities.The patient reports localized pain in the left elbow exacerbated by movement and pressure. There is no s...",
+      "ground_truth": [
+        "M25522"
+      ],
+      "predicted": [
+        "M25522"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25522",
+          "desc": "Pain in left elbow",
+          "confidence": 0.93
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 25788.617610931396,
+      "total_call_time_ms": 25788.967,
+      "timestamp": "2025-12-09T10:44:55.307896"
+    },
+    {
+      "sample_id": 18,
+      "clinical_text": "The patient has a history of occasional wrist pain due to repetitive strain during work activities.The patient presents with sharp pain in the left wrist, exacerbated by movement. There is swelling an...",
+      "ground_truth": [
+        "M25532"
+      ],
+      "predicted": [
+        "M25532",
+        "M25632"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25532",
+          "desc": "Pain in left wrist",
+          "confidence": 0.94
+        },
+        {
+          "code": "M25632",
+          "desc": "Stiffness of left wrist, not elsewhere classified",
+          "confidence": 0.65
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "processing_time_ms": 39046.414375305176,
+      "total_call_time_ms": 39046.534,
+      "timestamp": "2025-12-09T10:45:21.097770"
+    },
+    {
+      "sample_id": 19,
+      "clinical_text": "The patient has a history of occasional joint pain in various joints, including the right hand, which has been persistent for the last two weeks.The patient presents with pain localized to the joints ...",
+      "ground_truth": [
+        "M25541"
+      ],
+      "predicted": [
+        "M25541",
+        "M19041"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25541",
+          "desc": "Pain in joints of right hand",
+          "confidence": 0.9
+        },
+        {
+          "code": "M19041",
+          "desc": "Primary osteoarthritis, right hand",
+          "confidence": 0.82
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "processing_time_ms": 42919.254302978516,
+      "total_call_time_ms": 42919.351,
+      "timestamp": "2025-12-09T10:46:00.144675"
+    },
+    {
+      "sample_id": 20,
+      "clinical_text": "The patient has a history of occasional hip pain due to previous sports-related injuries.The patient complains of sharp pain localized in the right hip, exacerbated by movement and weight-bearing acti...",
+      "ground_truth": [
+        "M25551"
+      ],
+      "predicted": [
+        "M25551"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25551",
+          "desc": "Pain in right hip",
+          "confidence": 0.93
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 29436.312913894653,
+      "total_call_time_ms": 29436.537,
+      "timestamp": "2025-12-09T10:46:43.067076"
+    },
+    {
+      "sample_id": 21,
+      "clinical_text": "The patient has a history of occasional hip pain, especially after physical activities or prolonged standing.The patient complains of persistent pain localized to the left hip joint, exacerbated by mo...",
+      "ground_truth": [
+        "M25552"
+      ],
+      "predicted": [
+        "M25552"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25552",
+          "desc": "Pain in left hip",
+          "confidence": 0.97
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 21123.74448776245,
+      "total_call_time_ms": 21124.09,
+      "timestamp": "2025-12-09T10:47:12.504261"
+    },
+    {
+      "sample_id": 22,
+      "clinical_text": "The patient has a history of occasional joint pain, particularly in the hips and lower back, but no significant previous injuries or surgeries related to the hip.The patient reports persistent dull pa...",
+      "ground_truth": [
+        "M25559"
+      ],
+      "predicted": [
+        "M25551"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25551",
+          "desc": "Pain in right hip",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": false,
+      "any_match": false,
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "processing_time_ms": 21176.679134368896,
+      "total_call_time_ms": 21176.9,
+      "timestamp": "2025-12-09T10:47:33.628904"
+    },
+    {
+      "sample_id": 23,
+      "clinical_text": "The patient has a history of occasional knee pain after strenuous physical activities.The patient complains of sharp pain localized in the right knee, exacerbated by movement and weight-bearing.X-ray ...",
+      "ground_truth": [
+        "M25561"
+      ],
+      "predicted": [
+        "M25561"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25561",
+          "desc": "Pain in right knee",
+          "confidence": 0.93
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 38095.45636177063,
+      "total_call_time_ms": 38095.674,
+      "timestamp": "2025-12-09T10:47:54.806607"
+    },
+    {
+      "sample_id": 24,
+      "clinical_text": "The patient has a history of occasional ankle sprains but no chronic joint issues or previous foot injuries.The patient reports sharp pain localized to the right ankle and joints of the right foot, ex...",
+      "ground_truth": [
+        "M25571"
+      ],
+      "predicted": [
+        "M25571"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25571",
+          "desc": "Pain in right ankle and joints of right foot",
+          "confidence": 0.94
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 16008.123397827148,
+      "total_call_time_ms": 16008.346,
+      "timestamp": "2025-12-09T10:48:32.903050"
+    },
+    {
+      "sample_id": 25,
+      "clinical_text": "The patient has a history of mild osteoarthritis in the left ankle due to previous sports injuries.The patient presents with sharp and persistent pain localized to the left ankle and joints of the lef...",
+      "ground_truth": [
+        "M25572"
+      ],
+      "predicted": [
+        "M19172",
+        "M25572",
+        "M25472"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M19172",
+          "desc": "Post-traumatic osteoarthritis, left ankle and foot",
+          "confidence": 0.93
+        },
+        {
+          "code": "M25572",
+          "desc": "Pain in left ankle and joints of left foot",
+          "confidence": 0.84
+        },
+        {
+          "code": "M25472",
+          "desc": "Effusion, left ankle",
+          "confidence": 0.68
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 2,
+      "false_negatives": 0,
+      "processing_time_ms": 58330.22475242615,
+      "total_call_time_ms": 58330.54,
+      "timestamp": "2025-12-09T10:48:48.912078"
+    },
+    {
+      "sample_id": 26,
+      "clinical_text": "The patient has a history of occasional ankle sprains during physical activities.The patient presents with persistent pain localized to the ankle and joints of the foot, exacerbated by weight-bearing ...",
+      "ground_truth": [
+        "M25579"
+      ],
+      "predicted": [
+        "M25579"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M25579",
+          "desc": "Pain in unspecified ankle and joints of unspecified foot",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 18129.364728927612,
+      "total_call_time_ms": 18129.599,
+      "timestamp": "2025-12-09T10:49:47.243706"
+    },
+    {
+      "sample_id": 27,
+      "clinical_text": "The patient has a history of chronic back pain and stiffness, especially in the lumbar region. No history of hip, knee, or jaw pain.The patient presents with localized tenderness over the lumbar spine...",
+      "ground_truth": [
+        "M2578"
+      ],
+      "predicted": [
+        "M2578",
+        "M5450"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M2578",
+          "desc": "Osteophyte, vertebrae",
+          "confidence": 0.92
+        },
+        {
+          "code": "M5450",
+          "desc": "Low back pain, unspecified",
+          "confidence": 0.84
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "processing_time_ms": 55493.839740753174,
+      "total_call_time_ms": 55494.028999999995,
+      "timestamp": "2025-12-09T10:50:05.374046"
+    },
+    {
+      "sample_id": 28,
+      "clinical_text": "The patient has a history of occasional jaw pain and clicking in the jaw joint.The patient reports pain and discomfort in the jaw joint, especially while chewing or speaking. There is occasional jaw l...",
+      "ground_truth": [
+        "M26609"
+      ],
+      "predicted": [
+        "M26609"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M26609",
+          "desc": "Unspecified temporomandibular joint disorder, unspecified side",
+          "confidence": 0.96
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 12002.317428588867,
+      "total_call_time_ms": 12002.539,
+      "timestamp": "2025-12-09T10:51:00.868651"
+    },
+    {
+      "sample_id": 29,
+      "clinical_text": "The patient has a history of occasional jaw pain exacerbated by chewing tough foods and clenching the jaw during stressful situations.The patient presents with pain and clicking sound in the right tem...",
+      "ground_truth": [
+        "M2669"
+      ],
+      "predicted": [
+        "M26601",
+        "M2652"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M26601",
+          "desc": "Right temporomandibular joint disorder, unspecified",
+          "confidence": 0.83
+        },
+        {
+          "code": "M2652",
+          "desc": "Limited mandibular range of motion",
+          "confidence": 0.69
+        }
+      ],
+      "exact_match": false,
+      "any_match": false,
+      "true_positives": 0,
+      "false_positives": 2,
+      "false_negatives": 1,
+      "processing_time_ms": 82677.41703987122,
+      "total_call_time_ms": 82677.59599999999,
+      "timestamp": "2025-12-09T10:51:12.871993"
+    },
+    {
+      "sample_id": 30,
+      "clinical_text": "The patient has a history of recurrent fevers, unexplained weight loss, myalgias, and neuropathy over the past few months.The patient presents with a persistent low-grade fever, unintentional weight l...",
+      "ground_truth": [
+        "M300"
+      ],
+      "predicted": [
+        "M300",
+        "G629"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M300",
+          "desc": "Polyarteritis nodosa",
+          "confidence": 0.97
+        },
+        {
+          "code": "G629",
+          "desc": "Polyneuropathy, unspecified",
+          "confidence": 0.65
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "processing_time_ms": 38274.39522743225,
+      "total_call_time_ms": 38274.616,
+      "timestamp": "2025-12-09T10:52:35.567235"
+    },
+    {
+      "sample_id": 31,
+      "clinical_text": "The patient has a history of asthma and chronic sinusitis.Presented with worsening shortness of breath, cough, and peripheral neuropathy.Eosinophilia noted on complete blood count. Sinus CT showing si...",
+      "ground_truth": [
+        "M301"
+      ],
+      "predicted": [
+        "M301",
+        "J329",
+        "J45998"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M301",
+          "desc": "Polyarteritis with lung involvement [Churg-Strauss]",
+          "confidence": 0.97
+        },
+        {
+          "code": "J329",
+          "desc": "Chronic sinusitis, unspecified",
+          "confidence": 0.76
+        },
+        {
+          "code": "J45998",
+          "desc": "Other asthma",
+          "confidence": 0.66
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 2,
+      "false_negatives": 0,
+      "processing_time_ms": 53986.67049407959,
+      "total_call_time_ms": 53986.863999999994,
+      "timestamp": "2025-12-09T10:53:13.842522"
+    },
+    {
+      "sample_id": 32,
+      "clinical_text": "The patient has a history of seasonal allergies and occasional skin rashes triggered by certain foods.The patient presents with palpable purpura on the lower extremities, joint pain, abdominal pain, a...",
+      "ground_truth": [
+        "M310"
+      ],
+      "predicted": [
+        "M310"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M310",
+          "desc": "Hypersensitivity angiitis",
+          "confidence": 0.89
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 38594.49124336243,
+      "total_call_time_ms": 38594.721999999994,
+      "timestamp": "2025-12-09T10:54:07.830121"
+    },
+    {
+      "sample_id": 33,
+      "clinical_text": "The patient has a history of recurrent sinusitis and chronic cough.Presented with complaints of persistent nosebleeds, joint pain, and shortness of breath.ANCA antibodies were positive, and a lung bio...",
+      "ground_truth": [
+        "M3130"
+      ],
+      "predicted": [
+        "M3130"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M3130",
+          "desc": "Wegener's granulomatosis without renal involvement",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 48547.88327217102,
+      "total_call_time_ms": 48548.131,
+      "timestamp": "2025-12-09T10:54:46.425490"
+    },
+    {
+      "sample_id": 34,
+      "clinical_text": "The patient has a history of intermittent claudication, dizziness, and unequal blood pressure in the arms.The patient presents with fatigue, diminished pulses in upper extremities, and a blood pressur...",
+      "ground_truth": [
+        "M314"
+      ],
+      "predicted": [
+        "M314"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M314",
+          "desc": "Aortic arch syndrome [Takayasu]",
+          "confidence": 0.98
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 43107.919454574585,
+      "total_call_time_ms": 43108.171,
+      "timestamp": "2025-12-09T10:55:34.974598"
+    },
+    {
+      "sample_id": 35,
+      "clinical_text": "The patient is a 68-year-old female with a history of hypertension and osteoarthritis.The patient presents with severe headache, jaw pain exacerbated by chewing, fatigue, and stiffness in the shoulder...",
+      "ground_truth": [
+        "M315"
+      ],
+      "predicted": [
+        "M315"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M315",
+          "desc": "Giant cell arteritis with polymyalgia rheumatica",
+          "confidence": 0.98
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 8464.47205543518,
+      "total_call_time_ms": 8464.734,
+      "timestamp": "2025-12-09T10:56:18.083607"
+    },
+    {
+      "sample_id": 36,
+      "clinical_text": "The patient has a history of chronic kidney disease stage 3 due to IgA nephropathy.The patient presents with hematuria, proteinuria, cough with hemoptysis, and fatigue.Laboratory tests show elevated C...",
+      "ground_truth": [
+        "M317"
+      ],
+      "predicted": [
+        "M317",
+        "I7782",
+        "N1831"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M317",
+          "desc": "Microscopic polyangiitis",
+          "confidence": 0.95
+        },
+        {
+          "code": "I7782",
+          "desc": "Antineutrophilic cytoplasmic antibody [ANCA] vasculitis",
+          "confidence": 0.78
+        },
+        {
+          "code": "N1831",
+          "desc": "Chronic kidney disease, stage 3a",
+          "confidence": 0.65
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 2,
+      "false_negatives": 0,
+      "processing_time_ms": 73048.45714569092,
+      "total_call_time_ms": 73048.55600000001,
+      "timestamp": "2025-12-09T10:56:26.549466"
+    },
+    {
+      "sample_id": 37,
+      "clinical_text": "The patient has a known history of systemic lupus erythematosus with previous episodes of lupus nephritis and arthritis.The patient presents with sharp chest pain that worsens with deep breathing or c...",
+      "ground_truth": [
+        "M3212"
+      ],
+      "predicted": [
+        "M3212"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M3212",
+          "desc": "Pericarditis in systemic lupus erythematosus",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 34325.82068443298,
+      "total_call_time_ms": 34326.047000000006,
+      "timestamp": "2025-12-09T10:57:39.598420"
+    },
+    {
+      "sample_id": 38,
+      "clinical_text": "The patient has a known history of systemic lupus erythematosus with previous episodes of arthritis and skin manifestations.Presented with fatigue, facial rash, joint pain, and swelling. Reports foamy...",
+      "ground_truth": [
+        "M3214"
+      ],
+      "predicted": [
+        "M3214"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M3214",
+          "desc": "Glomerular disease in systemic lupus erythematosus",
+          "confidence": 0.96
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 25330.869913101196,
+      "total_call_time_ms": 25331.043,
+      "timestamp": "2025-12-09T10:58:13.925298"
+    },
+    {
+      "sample_id": 39,
+      "clinical_text": "The patient has a known history of systemic lupus erythematosus with previous episodes of joint pain and fatigue.The patient presents with joint pain, fatigue, and mild skin rash. No symptoms of peric...",
+      "ground_truth": [
+        "M3219"
+      ],
+      "predicted": [
+        "M3219"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M3219",
+          "desc": "Other organ or system involvement in systemic lupus erythematosus",
+          "confidence": 0.82
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 42002.42042541504,
+      "total_call_time_ms": 42002.714,
+      "timestamp": "2025-12-09T10:58:39.257085"
+    },
+    {
+      "sample_id": 40,
+      "clinical_text": "The patient has a history of systemic lupus erythematosus with previous episodes of joint pain, fatigue, and skin rashes.The patient presents with joint pain, fatigue, photosensitivity, and a malar ra...",
+      "ground_truth": [
+        "M329"
+      ],
+      "predicted": [
+        "M329"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M329",
+          "desc": "Systemic lupus erythematosus, unspecified",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 31511.996030807495,
+      "total_call_time_ms": 31512.189,
+      "timestamp": "2025-12-09T10:59:21.265107"
+    },
+    {
+      "sample_id": 41,
+      "clinical_text": "The patient has a history of progressive muscle weakness and fatigue over the last few months, without a history of arterial issues or connective tissue diseases.The patient presents with proximal mus...",
+      "ground_truth": [
+        "M3320"
+      ],
+      "predicted": [
+        "M3320"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M3320",
+          "desc": "Polymyositis, organ involvement unspecified",
+          "confidence": 0.93
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 16222.967386245728,
+      "total_call_time_ms": 16223.232,
+      "timestamp": "2025-12-09T10:59:52.777986"
+    },
+    {
+      "sample_id": 43,
+      "clinical_text": "The patient has a history of Raynaud's phenomenon and esophageal dysmotility for the last two years.The patient presents with painful swelling and hardened skin on the fingers, along with visible red ...",
+      "ground_truth": [
+        "M341"
+      ],
+      "predicted": [
+        "M341",
+        "I7300",
+        "L942",
+        "L943"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M341",
+          "desc": "CR(E)ST syndrome",
+          "confidence": 0.95
+        },
+        {
+          "code": "I7300",
+          "desc": "Raynaud's syndrome without gangrene",
+          "confidence": 0.9
+        },
+        {
+          "code": "L942",
+          "desc": "Calcinosis cutis",
+          "confidence": 0.88
+        },
+        {
+          "code": "L943",
+          "desc": "Sclerodactyly",
+          "confidence": 0.88
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 3,
+      "false_negatives": 0,
+      "processing_time_ms": 58879.99081611633,
+      "total_call_time_ms": 58880.538,
+      "timestamp": "2025-12-09T11:11:41.948503"
+    },
+    {
+      "sample_id": 44,
+      "clinical_text": "The patient has a history of progressive skin thickening, Raynaud's phenomenon, and dyspnea on exertion. No history of malar rash, oral ulcers, or photosensitivity.The patient presents with progressiv...",
+      "ground_truth": [
+        "M3481"
+      ],
+      "predicted": [
+        "M3481",
+        "L943",
+        "J8410"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M3481",
+          "desc": "Systemic sclerosis with lung involvement",
+          "confidence": 0.98
+        },
+        {
+          "code": "L943",
+          "desc": "Sclerodactyly",
+          "confidence": 0.9
+        },
+        {
+          "code": "J8410",
+          "desc": "Pulmonary fibrosis, unspecified",
+          "confidence": 0.88
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 2,
+      "false_negatives": 0,
+      "processing_time_ms": 69669.20804977417,
+      "total_call_time_ms": 69669.394,
+      "timestamp": "2025-12-09T11:12:40.830173"
+    },
+    {
+      "sample_id": 45,
+      "clinical_text": "The patient has a history of progressive skin thickening, Raynaud's phenomenon, and joint pain over the last two years.The patient presents with skin tightening, digital ulcers, and difficulty swallow...",
+      "ground_truth": [
+        "M3489"
+      ],
+      "predicted": [
+        "M3489"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M3489",
+          "desc": "Other systemic sclerosis",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 23846.14610671997,
+      "total_call_time_ms": 23846.382999999998,
+      "timestamp": "2025-12-09T11:13:50.500465"
+    },
+    {
+      "sample_id": 46,
+      "clinical_text": "The patient has a history of progressive skin thickening, Raynaud's phenomenon, and difficulty swallowing over the past year.The patient presents with skin tightening on the fingers, hands, and face, ...",
+      "ground_truth": [
+        "M349"
+      ],
+      "predicted": [
+        "M3481",
+        "L943"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M3481",
+          "desc": "Systemic sclerosis with lung involvement",
+          "confidence": 0.92
+        },
+        {
+          "code": "L943",
+          "desc": "Sclerodactyly",
+          "confidence": 0.82
+        }
+      ],
+      "exact_match": false,
+      "any_match": false,
+      "true_positives": 0,
+      "false_positives": 2,
+      "false_negatives": 1,
+      "processing_time_ms": 55952.45575904846,
+      "total_call_time_ms": 55952.663,
+      "timestamp": "2025-12-09T11:14:14.347542"
+    },
+    {
+      "sample_id": 47,
+      "clinical_text": "The patient has a history of recurrent oral and genital ulcers, as well as episodes of uveitis.The patient presents with painful oral ulcers, genital ulcers, and eye redness with visual disturbances.O...",
+      "ground_truth": [
+        "M352"
+      ],
+      "predicted": [
+        "M352",
+        "K120",
+        "H20029",
+        "N7681"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M352",
+          "desc": "Behcet's disease",
+          "confidence": 0.97
+        },
+        {
+          "code": "K120",
+          "desc": "Recurrent oral aphthae",
+          "confidence": 0.9
+        },
+        {
+          "code": "H20029",
+          "desc": "Recurrent acute iridocyclitis, unspecified eye",
+          "confidence": 0.72
+        },
+        {
+          "code": "N7681",
+          "desc": "Mucositis (ulcerative) of vagina and vulva",
+          "confidence": 0.7
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 3,
+      "false_negatives": 0,
+      "processing_time_ms": 74121.69361114502,
+      "total_call_time_ms": 74121.871,
+      "timestamp": "2025-12-09T11:15:10.301008"
+    },
+    {
+      "sample_id": 48,
+      "clinical_text": "The patient has a history of hypertension and hyperlipidemia.The patient complains of bilateral shoulder pain and stiffness, especially in the morning.Laboratory tests show elevated ESR (60 mm/h) and ...",
+      "ground_truth": [
+        "M353"
+      ],
+      "predicted": [
+        "M353"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M353",
+          "desc": "Polymyalgia rheumatica",
+          "confidence": 0.98
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 16131.940841674805,
+      "total_call_time_ms": 16132.186999999998,
+      "timestamp": "2025-12-09T11:16:24.423759"
+    },
+    {
+      "sample_id": 49,
+      "clinical_text": "The patient has a history of joint pain and stiffness for the past six months, with no prior diagnosis of connective tissue disorders.The patient presents with symmetrical joint pain, morning stiffnes...",
+      "ground_truth": [
+        "M359"
+      ],
+      "predicted": [
+        "M359"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M359",
+          "desc": "Systemic involvement of connective tissue, unspecified",
+          "confidence": 0.86
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 43838.984966278076,
+      "total_call_time_ms": 43839.267,
+      "timestamp": "2025-12-09T11:16:40.556850"
+    },
+    {
+      "sample_id": 50,
+      "clinical_text": "The patient has a history of chronic neck pain and stiffness, with recent onset difficulty in turning the head from side to side.The patient presents with progressive forward curvature of the upper sp...",
+      "ground_truth": [
+        "M40202"
+      ],
+      "predicted": [
+        "M40202"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M40202",
+          "desc": "Unspecified kyphosis, cervical region",
+          "confidence": 0.97
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 19262.857913970947,
+      "total_call_time_ms": 19263.047,
+      "timestamp": "2025-12-09T11:17:24.406182"
+    },
+    {
+      "sample_id": 51,
+      "clinical_text": "The patient has a history of chronic back pain and poor posture.The patient reports a visible rounding of the upper back and occasional mild discomfort in the thoracic spine area.X-ray imaging shows a...",
+      "ground_truth": [
+        "M40209"
+      ],
+      "predicted": [
+        "M40209"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M40209",
+          "desc": "Unspecified kyphosis, site unspecified",
+          "confidence": 0.92
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 26897.391080856323,
+      "total_call_time_ms": 26897.583000000002,
+      "timestamp": "2025-12-09T11:17:43.669813"
+    },
+    {
+      "sample_id": 52,
+      "clinical_text": "The patient has a history of mild scoliosis in childhood but did not require any interventions.The patient complains of occasional mild back pain, especially after prolonged standing.X-ray of the thor...",
+      "ground_truth": [
+        "M4185"
+      ],
+      "predicted": [
+        "M4185"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4185",
+          "desc": "Other forms of scoliosis, thoracolumbar region",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 16978.014945983887,
+      "total_call_time_ms": 16978.231,
+      "timestamp": "2025-12-09T11:18:10.568081"
+    },
+    {
+      "sample_id": 53,
+      "clinical_text": "The patient has a history of occasional lower back pain, especially after prolonged sitting or standing. No history of trauma or congenital spine abnormalities reported.The patient presents with persi...",
+      "ground_truth": [
+        "M4186"
+      ],
+      "predicted": [
+        "M4186",
+        "M5450"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4186",
+          "desc": "Other forms of scoliosis, lumbar region",
+          "confidence": 0.95
+        },
+        {
+          "code": "M5450",
+          "desc": "Low back pain, unspecified",
+          "confidence": 0.86
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "processing_time_ms": 26183.81977081299,
+      "total_call_time_ms": 26183.996,
+      "timestamp": "2025-12-09T11:18:27.547046"
+    },
+    {
+      "sample_id": 54,
+      "clinical_text": "The patient has no history of connective tissue disorders, spondylolysis, spondylolisthesis, ankylosing spondylitis, or other spinal conditions. There is no history of trauma or infections affecting t...",
+      "ground_truth": [
+        "M419"
+      ],
+      "predicted": [
+        "M419"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M419",
+          "desc": "Scoliosis, unspecified",
+          "confidence": 0.9
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 58681.34546279907,
+      "total_call_time_ms": 58681.581,
+      "timestamp": "2025-12-09T11:18:53.731743"
+    },
+    {
+      "sample_id": 55,
+      "clinical_text": "The patient has a history of chronic neck pain exacerbated by physical activities and relieved by rest. No history of trauma or congenital spine abnormalities reported.The patient presents with locali...",
+      "ground_truth": [
+        "M4302"
+      ],
+      "predicted": [
+        "M4302"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4302",
+          "desc": "Spondylolysis, cervical region",
+          "confidence": 0.97
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 15992.460489273071,
+      "total_call_time_ms": 15992.581,
+      "timestamp": "2025-12-09T11:19:52.413983"
+    },
+    {
+      "sample_id": 56,
+      "clinical_text": "The patient has a history of chronic lower back pain and occasional numbness in the legs.The patient presents with persistent lower back pain that worsens with activity. Occasionally experiences numbn...",
+      "ground_truth": [
+        "M4310"
+      ],
+      "predicted": [
+        "M4317",
+        "M5417"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4317",
+          "desc": "Spondylolisthesis, lumbosacral region",
+          "confidence": 0.95
+        },
+        {
+          "code": "M5417",
+          "desc": "Radiculopathy, lumbosacral region",
+          "confidence": 0.86
+        }
+      ],
+      "exact_match": false,
+      "any_match": false,
+      "true_positives": 0,
+      "false_positives": 2,
+      "false_negatives": 1,
+      "processing_time_ms": 48084.57589149475,
+      "total_call_time_ms": 48084.76,
+      "timestamp": "2025-12-09T11:20:08.406887"
+    },
+    {
+      "sample_id": 57,
+      "clinical_text": "The patient has a history of chronic neck pain and stiffness, with worsening symptoms over the past few months. No history of trauma or significant injuries to the cervical spine.The patient presents ...",
+      "ground_truth": [
+        "M4312"
+      ],
+      "predicted": [
+        "M4312"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4312",
+          "desc": "Spondylolisthesis, cervical region",
+          "confidence": 0.93
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 28479.427576065063,
+      "total_call_time_ms": 28479.659000000003,
+      "timestamp": "2025-12-09T11:20:56.492881"
+    },
+    {
+      "sample_id": 58,
+      "clinical_text": "The patient has a history of chronic lower back pain and occasional numbness and tingling in the legs.The patient presents with worsening lower back pain that radiates to the buttocks and thighs, alon...",
+      "ground_truth": [
+        "M4316"
+      ],
+      "predicted": [
+        "M4316",
+        "M48061"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4316",
+          "desc": "Spondylolisthesis, lumbar region",
+          "confidence": 0.93
+        },
+        {
+          "code": "M48061",
+          "desc": "Spinal stenosis, lumbar region without neurogenic claudication",
+          "confidence": 0.86
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "processing_time_ms": 75262.89129257202,
+      "total_call_time_ms": 75263.107,
+      "timestamp": "2025-12-09T11:21:24.973156"
+    },
+    {
+      "sample_id": 59,
+      "clinical_text": "The patient has a history of neck pain and stiffness for the past two weeks, with no prior episodes of similar symptoms.The patient presents with severe neck pain, restricted range of motion, and the ...",
+      "ground_truth": [
+        "M436"
+      ],
+      "predicted": [
+        "M436"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M436",
+          "desc": "Torticollis",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 27367.50841140747,
+      "total_call_time_ms": 27367.756,
+      "timestamp": "2025-12-09T11:22:40.236941"
+    },
+    {
+      "sample_id": 60,
+      "clinical_text": "The patient has a history of chronic inflammatory back pain and morning stiffness for the past 5 years. No history of scoliosis, spondylolysis, spondylolisthesis, torticollis, osteomyelitis, sacroilii...",
+      "ground_truth": [
+        "M452"
+      ],
+      "predicted": [
+        "M452"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M452",
+          "desc": "Ankylosing spondylitis of cervical region",
+          "confidence": 0.92
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 20338.871717453003,
+      "total_call_time_ms": 20339.064000000002,
+      "timestamp": "2025-12-09T11:23:07.613736"
+    },
+    {
+      "sample_id": 61,
+      "clinical_text": "The patient has a history of chronic low back pain and stiffness for the past 5 years, which has progressively worsened over time.The patient reports persistent lower back pain and stiffness that impr...",
+      "ground_truth": [
+        "M459"
+      ],
+      "predicted": [
+        "M459"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M459",
+          "desc": "Ankylosing spondylitis of unspecified sites in spine",
+          "confidence": 0.93
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 35297.54734039307,
+      "total_call_time_ms": 35297.681,
+      "timestamp": "2025-12-09T11:23:27.953538"
+    },
+    {
+      "sample_id": 62,
+      "clinical_text": "The patient has a history of chronic lower back pain and stiffness, especially in the sacroiliac joint area.The patient presents with worsening pain in the lower back and buttocks, exacerbated by prol...",
+      "ground_truth": [
+        "M461"
+      ],
+      "predicted": [
+        "M461"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M461",
+          "desc": "Sacroiliitis, not elsewhere classified",
+          "confidence": 0.96
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 23960.97731590271,
+      "total_call_time_ms": 23961.168,
+      "timestamp": "2025-12-09T11:24:03.251500"
+    },
+    {
+      "sample_id": 63,
+      "clinical_text": "The patient has a history of chronic back pain and recent trauma from a fall.The patient presents with localized back pain, tenderness over the thoracic spine, fever, and chills.MRI of the thoracic sp...",
+      "ground_truth": [
+        "M4620"
+      ],
+      "predicted": [
+        "M4624"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4624",
+          "desc": "Osteomyelitis of vertebra, thoracic region",
+          "confidence": 0.9
+        }
+      ],
+      "exact_match": false,
+      "any_match": false,
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "processing_time_ms": 24595.097541809082,
+      "total_call_time_ms": 24595.289,
+      "timestamp": "2025-12-09T11:24:27.213340"
+    },
+    {
+      "sample_id": 64,
+      "clinical_text": "The patient has a history of chronic back pain and a recent history of urinary tract infection treated with antibiotics.The patient presents with severe back pain localized to the thoracolumbar region...",
+      "ground_truth": [
+        "M4625"
+      ],
+      "predicted": [
+        "M4625"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4625",
+          "desc": "Osteomyelitis of vertebra, thoracolumbar region",
+          "confidence": 0.98
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 8776.028633117676,
+      "total_call_time_ms": 8776.261,
+      "timestamp": "2025-12-09T11:24:51.809355"
+    },
+    {
+      "sample_id": 65,
+      "clinical_text": "The patient has a history of chronic lower back pain and a recent urinary tract infection treated with antibiotics.The patient presents with severe localized lower back pain, tenderness over the lumbo...",
+      "ground_truth": [
+        "M4627"
+      ],
+      "predicted": [
+        "M4627"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4627",
+          "desc": "Osteomyelitis of vertebra, lumbosacral region",
+          "confidence": 0.97
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 22586.190700531006,
+      "total_call_time_ms": 22586.428,
+      "timestamp": "2025-12-09T11:25:00.586272"
+    },
+    {
+      "sample_id": 66,
+      "clinical_text": "The patient has a history of chronic lower back pain and a recent urinary tract infection treated with antibiotics.The patient presents with severe lower back pain, localized tenderness over the sacra...",
+      "ground_truth": [
+        "M4628"
+      ],
+      "predicted": [
+        "M4628"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4628",
+          "desc": "Osteomyelitis of vertebra, sacral and sacrococcygeal region",
+          "confidence": 0.98
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 16374.563455581665,
+      "total_call_time_ms": 16374.690999999999,
+      "timestamp": "2025-12-09T11:25:23.173340"
+    },
+    {
+      "sample_id": 67,
+      "clinical_text": "The patient has a history of chronic lower back pain and has undergone lumbar spine surgery in the past.The patient presents with severe lower back pain, localized tenderness over the lumbar spine, fe...",
+      "ground_truth": [
+        "M4636"
+      ],
+      "predicted": [
+        "M4636"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4636",
+          "desc": "Infection of intervertebral disc (pyogenic), lumbar region",
+          "confidence": 0.97
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 35220.755100250244,
+      "total_call_time_ms": 35221.026000000005,
+      "timestamp": "2025-12-09T11:25:39.548290"
+    },
+    {
+      "sample_id": 68,
+      "clinical_text": "The patient has a history of chronic neck pain and has undergone multiple cervical spine imaging studies in the past due to degenerative changes.The patient presents with worsening neck pain, limited ...",
+      "ground_truth": [
+        "M4642"
+      ],
+      "predicted": [
+        "M4642"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4642",
+          "desc": "Discitis, unspecified, cervical region",
+          "confidence": 0.98
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 12059.951066970825,
+      "total_call_time_ms": 12060.016,
+      "timestamp": "2025-12-09T11:26:14.770002"
+    },
+    {
+      "sample_id": 69,
+      "clinical_text": "The patient has a history of chronic lower back pain and has previously undergone physical therapy for lumbar spine issues.The patient presents with worsening lower back pain that is aggravated by mov...",
+      "ground_truth": [
+        "M4647"
+      ],
+      "predicted": [
+        "M4647"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4647",
+          "desc": "Discitis, unspecified, lumbosacral region",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 22753.610372543335,
+      "total_call_time_ms": 22753.810999999998,
+      "timestamp": "2025-12-09T11:26:26.830205"
+    },
+    {
+      "sample_id": 70,
+      "clinical_text": "The patient has a history of chronic lower back pain and stiffness for the past six months, with no history of trauma or recent infections.The patient presents with worsening lower back pain, limited ...",
+      "ground_truth": [
+        "M4656"
+      ],
+      "predicted": [
+        "M4656"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4656",
+          "desc": "Other infective spondylopathies, lumbar region",
+          "confidence": 0.93
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 28702.27837562561,
+      "total_call_time_ms": 28702.449,
+      "timestamp": "2025-12-09T11:26:49.593519"
+    },
+    {
+      "sample_id": 71,
+      "clinical_text": "The patient has a history of intermittent neck pain and stiffness over the past six months, with no history of trauma or recent infections.The patient presents with worsening neck pain, limited range ...",
+      "ground_truth": [
+        "M4692"
+      ],
+      "predicted": [
+        "M4692"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4692",
+          "desc": "Unspecified inflammatory spondylopathy, cervical region",
+          "confidence": 0.96
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 14281.22091293335,
+      "total_call_time_ms": 14281.438,
+      "timestamp": "2025-12-09T11:27:18.296469"
+    },
+    {
+      "sample_id": 72,
+      "clinical_text": "The patient has a history of chronic neck pain and tingling sensation in the upper extremities.The patient presents with neck pain, radiating pain to the arms, numbness, and weakness in the hands.MRI ...",
+      "ground_truth": [
+        "M4722"
+      ],
+      "predicted": [
+        "M4722"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4722",
+          "desc": "Other spondylosis with radiculopathy, cervical region",
+          "confidence": 0.93
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 40864.55297470093,
+      "total_call_time_ms": 40864.792,
+      "timestamp": "2025-12-09T11:27:32.578502"
+    },
+    {
+      "sample_id": 73,
+      "clinical_text": "The patient has a history of chronic neck pain and stiffness exacerbated by movement. No history of trauma or neurological deficits.The patient presents with persistent neck pain, limited range of mot...",
+      "ground_truth": [
+        "M47812"
+      ],
+      "predicted": [
+        "M47812"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M47812",
+          "desc": "Spondylosis without myelopathy or radiculopathy, cervical region",
+          "confidence": 0.97
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 33380.956411361694,
+      "total_call_time_ms": 33381.17600000001,
+      "timestamp": "2025-12-09T11:28:13.443939"
+    },
+    {
+      "sample_id": 74,
+      "clinical_text": "The patient has a history of chronic back pain and stiffness in the thoracic region.The patient presents with dull, aching pain in the mid-back region that worsens with movement and is alleviated with...",
+      "ground_truth": [
+        "M47814"
+      ],
+      "predicted": [
+        "M47814"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M47814",
+          "desc": "Spondylosis without myelopathy or radiculopathy, thoracic region",
+          "confidence": 0.97
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 19970.99781036377,
+      "total_call_time_ms": 19971.24,
+      "timestamp": "2025-12-09T11:28:46.825798"
+    },
+    {
+      "sample_id": 75,
+      "clinical_text": "The patient has a history of chronic low back pain exacerbated by prolonged sitting and relieved by lying down. No history of trauma or neurological deficits.The patient presents with dull, aching low...",
+      "ground_truth": [
+        "M47816"
+      ],
+      "predicted": [
+        "M47816"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M47816",
+          "desc": "Spondylosis without myelopathy or radiculopathy, lumbar region",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 34255.75923919678,
+      "total_call_time_ms": 34255.963,
+      "timestamp": "2025-12-09T11:29:06.797909"
+    },
+    {
+      "sample_id": 76,
+      "clinical_text": "The patient has a history of chronic low back pain exacerbated by prolonged sitting and relieved by lying down. No history of trauma or neurological disorders.The patient presents with chronic low bac...",
+      "ground_truth": [
+        "M47817"
+      ],
+      "predicted": [
+        "M47817"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M47817",
+          "desc": "Spondylosis without myelopathy or radiculopathy, lumbosacral region",
+          "confidence": 0.96
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 31062.763929367065,
+      "total_call_time_ms": 31062.982,
+      "timestamp": "2025-12-09T11:29:41.054451"
+    },
+    {
+      "sample_id": 77,
+      "clinical_text": "The patient has a history of chronic lower back pain exacerbated by prolonged sitting and relieved by rest. No history of trauma or neurological deficits.The patient presents with localized lower back...",
+      "ground_truth": [
+        "M47819"
+      ],
+      "predicted": [
+        "M47816",
+        "M5450"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M47816",
+          "desc": "Spondylosis without myelopathy or radiculopathy, lumbar region",
+          "confidence": 0.92
+        },
+        {
+          "code": "M5450",
+          "desc": "Low back pain, unspecified",
+          "confidence": 0.66
+        }
+      ],
+      "exact_match": false,
+      "any_match": false,
+      "true_positives": 0,
+      "false_positives": 2,
+      "false_negatives": 1,
+      "processing_time_ms": 33554.13007736206,
+      "total_call_time_ms": 33554.367,
+      "timestamp": "2025-12-09T11:30:12.118455"
+    },
+    {
+      "sample_id": 78,
+      "clinical_text": "The patient has a history of chronic neck pain and stiffness for the past two years.The patient presents with neck pain that worsens with movement and is relieved by rest. There is no history of weakn...",
+      "ground_truth": [
+        "M47892"
+      ],
+      "predicted": [
+        "M47812"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M47812",
+          "desc": "Spondylosis without myelopathy or radiculopathy, cervical region",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": false,
+      "any_match": false,
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "processing_time_ms": 21866.19544029236,
+      "total_call_time_ms": 21866.699,
+      "timestamp": "2025-12-09T11:30:45.673574"
+    },
+    {
+      "sample_id": 79,
+      "clinical_text": "The patient has a history of chronic lower back pain exacerbated by prolonged sitting and relieved by lying down. No history of trauma or neurological deficits.The patient presents with dull, aching l...",
+      "ground_truth": [
+        "M47897"
+      ],
+      "predicted": [
+        "M47897"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M47897",
+          "desc": "Other spondylosis, lumbosacral region",
+          "confidence": 0.9
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 28466.0804271698,
+      "total_call_time_ms": 28466.354,
+      "timestamp": "2025-12-09T11:31:07.541052"
+    },
+    {
+      "sample_id": 80,
+      "clinical_text": "The patient has a history of chronic lower back pain and intermittent leg pain exacerbated by walking or prolonged standing.The patient presents with bilateral leg pain, weakness, and numbness that wo...",
+      "ground_truth": [
+        "M4800"
+      ],
+      "predicted": [
+        "M4800"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4800",
+          "desc": "Spinal stenosis, site unspecified",
+          "confidence": 0.86
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 98243.4663772583,
+      "total_call_time_ms": 98243.716,
+      "timestamp": "2025-12-09T11:31:36.018003"
+    },
+    {
+      "sample_id": 81,
+      "clinical_text": "The patient has a history of chronic neck and upper back pain, radiating to the arms and shoulders, which has been progressively worsening over the last six months. There is no history of trauma or fr...",
+      "ground_truth": [
+        "M4803"
+      ],
+      "predicted": [
+        "M4803",
+        "M5412"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4803",
+          "desc": "Spinal stenosis, cervicothoracic region",
+          "confidence": 0.93
+        },
+        {
+          "code": "M5412",
+          "desc": "Radiculopathy, cervical region",
+          "confidence": 0.78
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "processing_time_ms": 58818.92275810242,
+      "total_call_time_ms": 58825.671,
+      "timestamp": "2025-12-09T11:33:14.264303"
+    },
+    {
+      "sample_id": 82,
+      "clinical_text": "The patient has a history of chronic back pain and numbness in the legs.The patient presents with worsening lower back pain, radiating pain in the legs, numbness, and tingling in the lower extremities...",
+      "ground_truth": [
+        "M4805"
+      ],
+      "predicted": [
+        "M4805"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4805",
+          "desc": "Spinal stenosis, thoracolumbar region",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 31948.400020599365,
+      "total_call_time_ms": 31948.606000000003,
+      "timestamp": "2025-12-09T11:34:13.090720"
+    },
+    {
+      "sample_id": 83,
+      "clinical_text": "The patient has a history of chronic low back pain and intermittent numbness and tingling in the lower extremities for the past 6 months.The patient presents with worsening lower back pain, radiating ...",
+      "ground_truth": [
+        "M48062"
+      ],
+      "predicted": [
+        "M48062",
+        "M5416"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M48062",
+          "desc": "Spinal stenosis, lumbar region with neurogenic claudication",
+          "confidence": 0.95
+        },
+        {
+          "code": "M5416",
+          "desc": "Radiculopathy, lumbar region",
+          "confidence": 0.78
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "processing_time_ms": 19203.7935256958,
+      "total_call_time_ms": 19203.973,
+      "timestamp": "2025-12-09T11:34:45.039953"
+    },
+    {
+      "sample_id": 84,
+      "clinical_text": "The patient has a history of chronic lower back pain and radiating pain into the legs, especially when walking or standing for prolonged periods. No history of trauma or fractures.The patient presents...",
+      "ground_truth": [
+        "M4807"
+      ],
+      "predicted": [
+        "M4807",
+        "M5417"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4807",
+          "desc": "Spinal stenosis, lumbosacral region",
+          "confidence": 0.95
+        },
+        {
+          "code": "M5417",
+          "desc": "Radiculopathy, lumbosacral region",
+          "confidence": 0.9
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "processing_time_ms": 35776.22675895691,
+      "total_call_time_ms": 35776.426999999996,
+      "timestamp": "2025-12-09T11:35:04.244645"
+    },
+    {
+      "sample_id": 85,
+      "clinical_text": "The patient has a history of chronic back pain and stiffness, which has progressively worsened over the last few years. No history of traumatic events or fractures.The patient presents with severe bac...",
+      "ground_truth": [
+        "M4810"
+      ],
+      "predicted": [
+        "M4810"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4810",
+          "desc": "Ankylosing hyperostosis [Forestier], site unspecified",
+          "confidence": 0.93
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 16367.078065872192,
+      "total_call_time_ms": 16367.265,
+      "timestamp": "2025-12-09T11:35:40.021720"
+    },
+    {
+      "sample_id": 86,
+      "clinical_text": "The patient has a history of a recent traumatic injury to the cervical region following a fall from a ladder.The patient presents with localized neck pain, limited range of motion, and tenderness over...",
+      "ground_truth": [
+        "M4832"
+      ],
+      "predicted": [
+        "M4832"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4832",
+          "desc": "Traumatic spondylopathy, cervical region",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 28045.327186584473,
+      "total_call_time_ms": 28045.521999999997,
+      "timestamp": "2025-12-09T11:35:56.389603"
+    },
+    {
+      "sample_id": 87,
+      "clinical_text": "The patient has a history of osteoporosis, which predisposes them to fractures.The patient presented with acute onset severe mid-back pain after a fall.X-ray of the thoracic spine revealed a collapsed...",
+      "ground_truth": [
+        "M4854XA"
+      ],
+      "predicted": [
+        "M4854XA"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4854XA",
+          "desc": "Collapsed vertebra, not elsewhere classified, thoracic region, initial encounter for fracture",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 39814.714431762695,
+      "total_call_time_ms": 39814.981,
+      "timestamp": "2025-12-09T11:36:24.435924"
+    },
+    {
+      "sample_id": 88,
+      "clinical_text": "The patient has a history of osteoporosis and a previous thoracic spine injury.The patient reports mid-back pain that worsened after a recent fall.X-ray of the thoracic spine shows a compression fract...",
+      "ground_truth": [
+        "M4854XD"
+      ],
+      "predicted": [
+        "M4854XD",
+        "S22060D"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4854XD",
+          "desc": "Collapsed vertebra, not elsewhere classified, thoracic region, subsequent encounter for fracture wit",
+          "confidence": 0.9
+        },
+        {
+          "code": "S22060D",
+          "desc": "Wedge compression fracture of T7-T8 vertebra, subsequent encounter for fracture with routine healing",
+          "confidence": 0.75
+        }
+      ],
+      "exact_match": false,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "processing_time_ms": 75910.1574420929,
+      "total_call_time_ms": 75910.38799999999,
+      "timestamp": "2025-12-09T11:37:04.251571"
+    },
+    {
+      "sample_id": 89,
+      "clinical_text": "The patient has a history of osteoporosis and a recent fall from standing height.The patient presents with severe mid-back pain, tenderness on palpation over the thoracolumbar region, limited range of...",
+      "ground_truth": [
+        "M4855XA"
+      ],
+      "predicted": [
+        "M4855XA"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4855XA",
+          "desc": "Collapsed vertebra, not elsewhere classified, thoracolumbar region, initial encounter for fracture",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 50155.322790145874,
+      "total_call_time_ms": 50155.583,
+      "timestamp": "2025-12-09T11:38:20.163013"
+    },
+    {
+      "sample_id": 90,
+      "clinical_text": "The patient has a history of osteoporosis and chronic lower back pain.The patient presented with severe lower back pain after a fall.X-ray of the lumbar spine showed a collapsed vertebra at the L3 lev...",
+      "ground_truth": [
+        "M4856XA"
+      ],
+      "predicted": [
+        "M4856XA"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M4856XA",
+          "desc": "Collapsed vertebra, not elsewhere classified, lumbar region, initial encounter for fracture",
+          "confidence": 0.94
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 35341.65048599243,
+      "total_call_time_ms": 35341.808,
+      "timestamp": "2025-12-09T11:39:10.329049"
+    },
+    {
+      "sample_id": 91,
+      "clinical_text": "The patient has a history of chronic neck pain and occasional numbness in the upper extremities over the past year.The patient presents with worsening neck pain, bilateral upper extremity weakness, an...",
+      "ground_truth": [
+        "M5000"
+      ],
+      "predicted": [
+        "M5000"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M5000",
+          "desc": "Cervical disc disorder with myelopathy, unspecified cervical region",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 48338.64903450012,
+      "total_call_time_ms": 48338.921,
+      "timestamp": "2025-12-09T11:39:45.671413"
+    },
+    {
+      "sample_id": 92,
+      "clinical_text": "The patient has a history of chronic neck pain and numbness in the upper limbs for the past 6 months.The patient presents with weakness in both upper and lower extremities, gait disturbances, and diff...",
+      "ground_truth": [
+        "M50021"
+      ],
+      "predicted": [
+        "M50021"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M50021",
+          "desc": "Cervical disc disorder at C4-C5 level with myelopathy",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 28534.971475601196,
+      "total_call_time_ms": 28535.196,
+      "timestamp": "2025-12-09T11:40:34.011296"
+    },
+    {
+      "sample_id": 93,
+      "clinical_text": "The patient has a history of chronic neck pain and occasional numbness in the left arm for the past six months.The patient presents with neck pain that radiates to the left arm, accompanied by tinglin...",
+      "ground_truth": [
+        "M50121"
+      ],
+      "predicted": [
+        "M50121"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M50121",
+          "desc": "Cervical disc disorder at C4-C5 level with radiculopathy",
+          "confidence": 0.98
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 16891.221523284912,
+      "total_call_time_ms": 16891.452,
+      "timestamp": "2025-12-09T11:41:02.547115"
+    },
+    {
+      "sample_id": 94,
+      "clinical_text": "The patient has a history of chronic neck pain and occasional tingling sensation in the right arm for the past six months.The patient presents with neck pain that radiates to the right arm, accompanie...",
+      "ground_truth": [
+        "M50122"
+      ],
+      "predicted": [
+        "M50122"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M50122",
+          "desc": "Cervical disc disorder at C5-C6 level with radiculopathy",
+          "confidence": 0.97
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 16443.26686859131,
+      "total_call_time_ms": 16443.502,
+      "timestamp": "2025-12-09T11:41:19.439373"
+    },
+    {
+      "sample_id": 95,
+      "clinical_text": "The patient has a history of chronic neck pain and occasional numbness and tingling in the right arm for the past six months.The patient presents with neck pain that radiates to the right arm, accompa...",
+      "ground_truth": [
+        "M50123"
+      ],
+      "predicted": [
+        "M50123"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M50123",
+          "desc": "Cervical disc disorder at C6-C7 level with radiculopathy",
+          "confidence": 0.98
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 19423.63715171814,
+      "total_call_time_ms": 19423.903,
+      "timestamp": "2025-12-09T11:41:35.883724"
+    },
+    {
+      "sample_id": 96,
+      "clinical_text": "The patient has a history of chronic neck pain exacerbated by movement and relieved by rest. No history of neurological deficits, weakness, or tingling in the upper extremities.The patient presents wi...",
+      "ground_truth": [
+        "M5020"
+      ],
+      "predicted": [
+        "M5020"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M5020",
+          "desc": "Other cervical disc displacement, unspecified cervical region",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 11986.835241317749,
+      "total_call_time_ms": 11987.04,
+      "timestamp": "2025-12-09T11:41:55.308397"
+    },
+    {
+      "sample_id": 97,
+      "clinical_text": "The patient has a history of chronic neck pain and stiffness, especially in the upper cervical region. No history of trauma or previous cervical surgeries.The patient presents with neck pain that radi...",
+      "ground_truth": [
+        "M50221"
+      ],
+      "predicted": [
+        "M50221"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M50221",
+          "desc": "Other cervical disc displacement at C4-C5 level",
+          "confidence": 0.94
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 14965.59476852417,
+      "total_call_time_ms": 14965.782000000001,
+      "timestamp": "2025-12-09T11:42:07.296137"
+    },
+    {
+      "sample_id": 98,
+      "clinical_text": "The patient has a history of occasional neck pain exacerbated by prolonged sitting and relieved by rest. No history of trauma or previous spinal surgeries.The patient presents with chronic neck pain a...",
+      "ground_truth": [
+        "M5030"
+      ],
+      "predicted": [
+        "M5030"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M5030",
+          "desc": "Other cervical disc degeneration, unspecified cervical region",
+          "confidence": 0.92
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 57775.21467208862,
+      "total_call_time_ms": 57775.415,
+      "timestamp": "2025-12-09T11:42:22.262564"
+    },
+    {
+      "sample_id": 99,
+      "clinical_text": "The patient has a history of chronic neck pain and stiffness, especially in the upper neck region. No history of trauma or accidents reported.The patient complains of persistent neck pain that worsens...",
+      "ground_truth": [
+        "M5031"
+      ],
+      "predicted": [
+        "M5031"
+      ],
+      "predicted_with_scores": [
+        {
+          "code": "M5031",
+          "desc": "Other cervical disc degeneration, high cervical region",
+          "confidence": 0.95
+        }
+      ],
+      "exact_match": true,
+      "any_match": true,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "processing_time_ms": 29649.317979812622,
+      "total_call_time_ms": 29649.507,
+      "timestamp": "2025-12-09T11:43:20.038625"
+    }
+  ]
+}

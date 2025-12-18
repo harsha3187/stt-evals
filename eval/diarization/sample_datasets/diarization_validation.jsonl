@@ -1,0 +1,125 @@
+[
+  {
+    "id": "medical_consult_001",
+    "audio_file": "medical_dialogue/english/consult_001.wav", 
+    "reference_rttm": [
+      {"speaker_id": "doctor", "start_time": 0.0, "duration": 3.2, "confidence": 1.0},
+      {"speaker_id": "patient", "start_time": 3.5, "duration": 2.1, "confidence": 1.0},
+      {"speaker_id": "doctor", "start_time": 6.0, "duration": 4.5, "confidence": 1.0},
+      {"speaker_id": "patient", "start_time": 11.2, "duration": 1.8, "confidence": 1.0},
+      {"speaker_id": "doctor", "start_time": 13.5, "duration": 3.0, "confidence": 1.0}
+    ],
+    "hypothesis_rttm": [
+      {"speaker_id": "spk_001", "start_time": 0.1, "duration": 3.0, "confidence": 0.95},
+      {"speaker_id": "spk_002", "start_time": 3.6, "duration": 2.0, "confidence": 0.88},
+      {"speaker_id": "spk_001", "start_time": 6.2, "duration": 4.2, "confidence": 0.92},
+      {"speaker_id": "spk_002", "start_time": 11.0, "duration": 2.0, "confidence": 0.85},
+      {"speaker_id": "spk_001", "start_time": 13.8, "duration": 2.7, "confidence": 0.90}
+    ],
+    "metadata": {
+      "dataset": "medical_dialogue_en",
+      "split": "validation", 
+      "language": "en",
+      "domain": "medical",
+      "total_duration_s": 16.5,
+      "num_speakers": 2,
+      "speaker_roles": ["doctor", "patient"],
+      "audio_quality": "studio",
+      "overlap_percentage": 0.0,
+      "accent": "us_midwest",
+      "recording_conditions": "clean"
+    }
+  },
+  {
+    "id": "news_interview_001",
+    "audio_file": "broadcast_news/english/interview_001.wav",
+    "reference_rttm": [
+      {"speaker_id": "anchor", "start_time": 0.0, "duration": 2.8, "confidence": 1.0},
+      {"speaker_id": "guest", "start_time": 3.0, "duration": 5.5, "confidence": 1.0},
+      {"speaker_id": "anchor", "start_time": 8.8, "duration": 1.2, "confidence": 1.0},
+      {"speaker_id": "guest", "start_time": 10.2, "duration": 4.0, "confidence": 1.0},
+      {"speaker_id": "anchor", "start_time": 14.5, "duration": 2.3, "confidence": 1.0}
+    ],
+    "hypothesis_rttm": [
+      {"speaker_id": "spk_A", "start_time": 0.2, "duration": 2.5, "confidence": 0.93},
+      {"speaker_id": "spk_B", "start_time": 3.2, "duration": 5.2, "confidence": 0.87},
+      {"speaker_id": "spk_B", "start_time": 10.5, "duration": 3.8, "confidence": 0.89},
+      {"speaker_id": "spk_A", "start_time": 14.8, "duration": 2.0, "confidence": 0.91}
+    ],
+    "metadata": {
+      "dataset": "broadcast_news_en",
+      "split": "validation",
+      "language": "en", 
+      "domain": "news",
+      "total_duration_s": 16.8,
+      "num_speakers": 2,
+      "speaker_roles": ["anchor", "guest"],
+      "audio_quality": "broadcast",
+      "overlap_percentage": 0.0,
+      "genre": "interview",
+      "channel": "CNN"
+    }
+  },
+  {
+    "id": "arabic_medical_001",
+    "audio_file": "arabic_medical/consultation_001.wav",
+    "reference_rttm": [
+      {"speaker_id": "doctor_ar", "start_time": 0.0, "duration": 4.1, "confidence": 1.0},
+      {"speaker_id": "patient_ar", "start_time": 4.5, "duration": 2.8, "confidence": 1.0},
+      {"speaker_id": "doctor_ar", "start_time": 7.8, "duration": 3.5, "confidence": 1.0},
+      {"speaker_id": "patient_ar", "start_time": 11.8, "duration": 2.2, "confidence": 1.0},
+      {"speaker_id": "doctor_ar", "start_time": 14.5, "duration": 3.0, "confidence": 1.0}
+    ],
+    "hypothesis_rttm": [
+      {"speaker_id": "spk_ar_01", "start_time": 0.2, "duration": 3.8, "confidence": 0.89},
+      {"speaker_id": "spk_ar_02", "start_time": 4.7, "duration": 2.5, "confidence": 0.85},
+      {"speaker_id": "spk_ar_01", "start_time": 8.0, "duration": 3.2, "confidence": 0.92},
+      {"speaker_id": "spk_ar_02", "start_time": 12.0, "duration": 2.0, "confidence": 0.82},
+      {"speaker_id": "spk_ar_01", "start_time": 14.8, "duration": 2.7, "confidence": 0.88}
+    ],
+    "metadata": {
+      "dataset": "arabic_medical_dialogue",
+      "split": "validation",
+      "language": "ar",
+      "dialect": "msa", 
+      "domain": "medical",
+      "total_duration_s": 17.5,
+      "num_speakers": 2,
+      "speaker_roles": ["doctor", "patient"],
+      "audio_quality": "telephony",
+      "overlap_percentage": 0.0,
+      "recording_conditions": "noisy"
+    }
+  },
+  {
+    "id": "codeswitching_001",
+    "audio_file": "arabic_codeswitching/bilingual_001.wav",
+    "reference_rttm": [
+      {"speaker_id": "bilingual_speaker1", "start_time": 0.0, "duration": 3.8, "confidence": 1.0},
+      {"speaker_id": "bilingual_speaker2", "start_time": 4.2, "duration": 2.5, "confidence": 1.0},
+      {"speaker_id": "bilingual_speaker1", "start_time": 7.0, "duration": 4.2, "confidence": 1.0},
+      {"speaker_id": "bilingual_speaker2", "start_time": 11.8, "duration": 2.0, "confidence": 1.0}
+    ],
+    "hypothesis_rttm": [
+      {"speaker_id": "mixed_spk1", "start_time": 0.3, "duration": 3.5, "confidence": 0.68},
+      {"speaker_id": "mixed_spk2", "start_time": 4.5, "duration": 2.2, "confidence": 0.62},
+      {"speaker_id": "mixed_spk1", "start_time": 7.3, "duration": 3.8, "confidence": 0.71},
+      {"speaker_id": "mixed_spk2", "start_time": 12.0, "duration": 1.8, "confidence": 0.66}
+    ],
+    "metadata": {
+      "dataset": "arabic_codeswitching",
+      "split": "validation",
+      "language": "ar",
+      "dialect": "levantine",
+      "domain": "conversational", 
+      "total_duration_s": 13.8,
+      "num_speakers": 2,
+      "speaker_roles": ["speaker1", "speaker2"],
+      "audio_quality": "mobile",
+      "overlap_percentage": 0.0,
+      "codeswitching": true,
+      "secondary_language": "en",
+      "recording_conditions": "background_chatter"
+    }
+  }
+]

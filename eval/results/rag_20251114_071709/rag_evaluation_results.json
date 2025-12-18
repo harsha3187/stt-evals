@@ -1,0 +1,62 @@
+{
+  "task_type": "rag",
+  "timestamp": "2025-11-14T07:17:09.899629",
+  "session_id": "98c4d957-5f2b-4b4d-99be-6ea31f528e06",
+  "results": {
+    "summarization_metrics": {
+      "rouge_1_f1": 0.4590964590964591,
+      "rouge_2_f1": 0.15445665445665446,
+      "rouge_l_f1": 0.43345543345543347,
+      "meteor_score": 0.2578181839312902,
+      "semantic_similarity_cosine": 0.9242259661356608,
+      "semantic_similarity_euclidean": 0.9880081192543488,
+      "clinical_embedding_similarity": 0.9433606080976243,
+      "rouge_1_f1_rubric": {
+        "raw_value": 0.4590964590964591,
+        "rubric_score": 2,
+        "rubric_label": "Fair",
+        "metric_name": "rouge_1_f1"
+      },
+      "rouge_2_f1_rubric": {
+        "raw_value": 0.15445665445665446,
+        "rubric_score": 1,
+        "rubric_label": "Poor",
+        "metric_name": "rouge_2_f1"
+      },
+      "rouge_l_f1_rubric": {
+        "raw_value": 0.43345543345543347,
+        "rubric_score": 2,
+        "rubric_label": "Fair",
+        "metric_name": "rouge_l_f1"
+      },
+      "meteor_score_rubric": {
+        "raw_value": 0.2578181839312902,
+        "rubric_score": 1,
+        "rubric_label": "Poor",
+        "metric_name": "meteor_score"
+      },
+      "semantic_similarity_cosine_rubric": {
+        "raw_value": 0.9242259661356608,
+        "rubric_score": 4,
+        "rubric_label": "Excellent",
+        "metric_name": "semantic_similarity_cosine"
+      },
+      "semantic_similarity_euclidean_rubric": {
+        "raw_value": 0.9880081192543488,
+        "rubric_score": 4,
+        "rubric_label": "Excellent",
+        "metric_name": "semantic_similarity_euclidean"
+      },
+      "clinical_embedding_similarity_rubric": {
+        "raw_value": 0.9433606080976243,
+        "rubric_score": 4,
+        "rubric_label": "Excellent",
+        "metric_name": "clinical_embedding_similarity"
+      },
+      "language": "en",
+      "sample_count": 3,
+      "evaluation_timestamp": "2025-11-14 07:17:09.895677"
+    },
+    "evaluation_timestamp": "2025-11-14 07:17:09.895705"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "dataset": "AHQAD",
+  "description": "Arabic Healthcare Q&A Dataset",
+  "source": "https://www.kaggle.com/datasets/abdoashraf90/ahqad-arabic-healthcare-q-and-a-dataset",
+  "license": "CC BY 4.0",
+  "language": "ar",
+  "total_pairs": 100,
+  "sample_size": 100,
+  "categories": 27,
+  "files": {
+    "queries": "queries.jsonl",
+    "corpus": "corpus.jsonl",
+    "qrels": "qrels.jsonl",
+    "answers": "answers.jsonl"
+  }
+}

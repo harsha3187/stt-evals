@@ -1,0 +1,73 @@
+{
+  "task_type": "stt",
+  "timestamp": "2025-11-12T09:48:33.782022",
+  "session_id": "589c0e5a-1038-46f2-9d4e-03792d07fa99",
+  "results": {
+    "wer": 0.14285714285714285,
+    "mer": 0.14285714285714285,
+    "wip": 0.7346938775510203,
+    "wil": 0.26530612244897966,
+    "cer": 0.022222222222222223,
+    "word_levenshtein_distance": 0.6666666666666666,
+    "char_levenshtein_distance": 0.6666666666666666,
+    "normalized_word_ld": 0.16666666666666666,
+    "normalized_char_ld": 0.020753512132822477,
+    "wer_rubric": {
+      "raw_value": 0.14285714285714285,
+      "rubric_score": 3,
+      "rubric_label": "Good",
+      "metric_name": "wer"
+    },
+    "mer_rubric": {
+      "raw_value": 0.14285714285714285,
+      "rubric_score": 3,
+      "rubric_label": "Good",
+      "metric_name": "mer"
+    },
+    "wip_rubric": {
+      "raw_value": 0.7346938775510203,
+      "rubric_score": 2,
+      "rubric_label": "Fair",
+      "metric_name": "wip"
+    },
+    "wil_rubric": {
+      "raw_value": 0.26530612244897966,
+      "rubric_score": 2,
+      "rubric_label": "Fair",
+      "metric_name": "wil"
+    },
+    "cer_rubric": {
+      "raw_value": 0.022222222222222223,
+      "rubric_score": 4,
+      "rubric_label": "Excellent",
+      "metric_name": "cer"
+    },
+    "word_ld_rubric": {
+      "raw_value": 0.6666666666666666,
+      "rubric_score": 4,
+      "rubric_label": "Excellent",
+      "metric_name": "word_levenshtein_distance"
+    },
+    "char_ld_rubric": {
+      "raw_value": 0.6666666666666666,
+      "rubric_score": 4,
+      "rubric_label": "Excellent",
+      "metric_name": "char_levenshtein_distance"
+    },
+    "normalized_word_ld_rubric": {
+      "raw_value": 0.16666666666666666,
+      "rubric_score": 2,
+      "rubric_label": "Fair",
+      "metric_name": "normalized_word_ld"
+    },
+    "normalized_char_ld_rubric": {
+      "raw_value": 0.020753512132822477,
+      "rubric_score": 4,
+      "rubric_label": "Excellent",
+      "metric_name": "normalized_char_ld"
+    },
+    "language": "en",
+    "sample_count": 3,
+    "evaluation_timestamp": "2025-11-12 09:48:33.780050"
+  }
+}

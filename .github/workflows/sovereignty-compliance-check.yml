@@ -1,0 +1,144 @@
+name: Constitutional Compliance Check
+
+on:
+  pull_request:
+    branches: [main, staging, production]
+  push:
+    branches: [main, staging, production]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  compliance-analysis:
+    name: Sovereignty Compliance Analysis
+    runs-on: ubuntu-latest
+    outputs:
+      overall_score: ${{ steps.analyze.outputs.overall_score }}
+      gate_status: ${{ steps.analyze.outputs.gate_status }}
+      critical_violations: ${{ steps.analyze.outputs.critical_violations }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+          
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          
+      - name: Configure Poetry
+        run: |
+          poetry config virtualenvs.create true
+          poetry config virtualenvs.in-project true
+          
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-3.13-${{ hashFiles('**/poetry.lock') }}
+          
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-root
+
+      - name: Run Sovereignty Advisor Analysis
+        id: analyze
+        continue-on-error: true
+        run: |
+          make compliance-check
+
+          # Extract outputs for next jobs
+          OVERALL_SCORE=$(jq -r '.overall_score' compliance-report.json)
+          GATE_STATUS=$(jq -r '.gate_status' compliance-report.json)
+          CRITICAL_COUNT=$(jq -r '.critical_violations | length' compliance-report.json)
+
+          echo "overall_score=$OVERALL_SCORE" >> $GITHUB_OUTPUT
+          echo "gate_status=$GATE_STATUS" >> $GITHUB_OUTPUT
+          echo "critical_violations=$CRITICAL_COUNT" >> $GITHUB_OUTPUT
+
+          echo "### Compliance Analysis Results" >> $GITHUB_STEP_SUMMARY
+          echo "- **Overall Score**: $OVERALL_SCORE%" >> $GITHUB_STEP_SUMMARY
+          echo "- **Gate Status**: $GATE_STATUS" >> $GITHUB_STEP_SUMMARY
+          echo "- **Critical Violations**: $CRITICAL_COUNT" >> $GITHUB_STEP_SUMMARY
+
+      - name: Generate Compliance Report
+        run: make compliance-report
+
+      - name: Upload Compliance Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: compliance-report-${{ github.sha }}
+          path: |
+            compliance-report.json
+            compliance-report.md
+          retention-days: 90
+
+      - name: Post Report as PR Comment
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('compliance-report.md', 'utf8');
+
+            // Find existing bot comment
+            const comments = await github.rest.issues.listComments({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+
+            const botComment = comments.data.find(comment =>
+              comment.user.type === 'Bot' &&
+              comment.body.includes('UAE Sovereignty Compliance Report')
+            );
+
+            const commentBody = `${report}\n\n---\n**Commit**: ${context.sha.substring(0, 7)}`;
+
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                comment_id: botComment.id,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: commentBody
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: commentBody
+              });
+            }
+
+      - name: Check Gate Status
+        run: |
+          GATE_STATUS="${{ steps.analyze.outputs.gate_status }}"
+          OVERALL_SCORE="${{ steps.analyze.outputs.overall_score }}"
+
+          echo "Gate Status: $GATE_STATUS"
+          echo "Overall Score: $OVERALL_SCORE%"
+
+          if [ "$GATE_STATUS" = "red" ]; then
+            echo "❌ DEPLOYMENT BLOCKED: Critical compliance violations detected"
+            echo "Please remediate the following before proceeding:"
+            jq -r '.critical_violations[]' compliance-report.json
+            exit 1
+          elif [ "$GATE_STATUS" = "amber" ]; then
+            echo "⚠️ AMBER GATE: Manual approval required"
+            echo "Compliance score: $OVERALL_SCORE%"
+          else
+            echo "✅ GREEN GATE: Compliance check passed"
+            echo "Compliance score: $OVERALL_SCORE%"
+          fi

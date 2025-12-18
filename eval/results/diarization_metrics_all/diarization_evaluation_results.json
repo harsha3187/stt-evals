@@ -1,0 +1,65 @@
+{
+  "task_type": "diarization",
+  "timestamp": "2025-11-24T15:20:35.441897",
+  "session_id": "af183621-e595-430e-8da3-0c1664be4d9f",
+  "results": {
+    "der": 0.9851039157969851,
+    "missed_speech": 0.04192311123004192,
+    "false_alarm": 0.06297386495406297,
+    "speaker_confusion": 0.8802069396128802,
+    "jer": 0.3207108368505186,
+    "ser": 0.9565217391304348,
+    "ber": 0.4973787036959745,
+    "ber_ref_part": 0.4973787036959745,
+    "ber_fa_dur": 0.0,
+    "ber_fa_seg": 0.0,
+    "ber_fa_mean": 0.0,
+    "der_rubric": {
+      "raw_value": 0.9851039157969851,
+      "rubric_score": 1,
+      "rubric_label": "Poor",
+      "metric_name": "der"
+    },
+    "jer_rubric": {
+      "raw_value": 0.3207108368505186,
+      "rubric_score": 1,
+      "rubric_label": "Poor",
+      "metric_name": "jer"
+    },
+    "ser_rubric": {
+      "raw_value": 0.9565217391304348,
+      "rubric_score": 1,
+      "rubric_label": "Poor",
+      "metric_name": "ser"
+    },
+    "ber_rubric": {
+      "raw_value": 0.4973787036959745,
+      "rubric_score": 2,
+      "rubric_label": "Fair",
+      "metric_name": "ber"
+    },
+    "missed_speech_rubric": {
+      "raw_value": 0.04192311123004192,
+      "rubric_score": 4,
+      "rubric_label": "Excellent",
+      "metric_name": "missed_speech"
+    },
+    "false_alarm_rubric": {
+      "raw_value": 0.06297386495406297,
+      "rubric_score": 3,
+      "rubric_label": "Good",
+      "metric_name": "false_alarm"
+    },
+    "speaker_confusion_rubric": {
+      "raw_value": 0.8802069396128802,
+      "rubric_score": 1,
+      "rubric_label": "Poor",
+      "metric_name": "speaker_confusion"
+    },
+    "collar": 0.25,
+    "total_speech_time": 154.28,
+    "reference_speakers": 6,
+    "hypothesis_speakers": 2,
+    "evaluation_timestamp": "2025-11-24 15:20:35.439380"
+  }
+}

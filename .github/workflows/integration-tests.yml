@@ -1,0 +1,130 @@
+name: Integration Tests
+
+on:
+  workflow_dispatch:  # Manual trigger
+    inputs:
+      environment:
+        description: 'Environment to test'
+        required: true
+        type: choice
+        options:
+          - production
+          - integration
+  workflow_run:  # Auto-trigger integrations tests after Terraform Deploy workflow completes
+    workflows: ["Terraform Deploy"]
+    types:
+      - completed
+
+permissions:
+  contents: read
+  checks: write  # For test reporting
+
+jobs:
+  integration-tests:
+    name: Run HTTPYac Tests
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment || 'integration' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Download Terraform Outputs
+        uses: actions/download-artifact@v4
+        with:
+          name: terraform-outputs-${{ github.event.inputs.environment || vars.ENVIRONMENT_NAME }}
+          path: ./outputs
+        continue-on-error: true
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install HTTPYac CLI
+        run: npm install -g httpyac
+      
+      - name: Extract API Endpoint from Terraform Outputs
+        id: api_endpoint
+        run: |
+          if [ -f outputs/outputs.json ]; then
+            API_ENDPOINT=$(jq -r '.api_endpoint.value // "https://api-${{ vars.ENVIRONMENT_NAME }}.azurewebsites.net"' outputs/outputs.json)
+          else
+            # Fallback to environment-based URL if outputs not available
+            API_ENDPOINT="https://api-${{ vars.ENVIRONMENT_NAME }}.azurewebsites.net"
+          fi
+          echo "API_ENDPOINT=$API_ENDPOINT" >> $GITHUB_OUTPUT
+          echo "Discovered API Endpoint: $API_ENDPOINT"
+      
+      - name: Azure Login for Test Authentication
+        uses: azure/login@v2
+        with:
+          creds: |
+            {
+              "clientId": "${{ secrets.AZURE_CLIENT_ID }}",
+              "clientSecret": "${{ secrets.AZURE_CLIENT_SECRET }}",
+              "tenantId": "${{ secrets.AZURE_TENANT_ID }}",
+              "subscriptionId": "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+            }
+          enable-AzPSSession: false
+      
+      - name: Set Azure Authentication Environment
+        run: |
+          echo "ARM_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }}" >> $GITHUB_ENV
+          echo "ARM_CLIENT_SECRET=${{ secrets.AZURE_CLIENT_SECRET }}" >> $GITHUB_ENV
+          echo "ARM_TENANT_ID=${{ secrets.AZURE_TENANT_ID }}" >> $GITHUB_ENV
+          echo "ARM_SUBSCRIPTION_ID=${{ secrets.AZURE_SUBSCRIPTION_ID }}" >> $GITHUB_ENV
+      
+      - name: Run HTTPYac Integration Tests
+        run: |
+          httpyac send tests/http/integration.http \
+            --all \
+            --bail \
+            --json \
+            --junit \
+            --output ./test-results/results.json \
+            --junit-output ./test-results/junit.xml \
+            --var BASE_URL=${{ steps.api_endpoint.outputs.API_ENDPOINT }} \
+            --var API_PREFIX=/api/v1 \
+            --var ENVIRONMENT=${{ vars.ENVIRONMENT_NAME }}
+      
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: |
+            test-results/junit.xml
+          check_name: HTTPYac Integration Tests
+      
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integration-test-results-${{ vars.ENVIRONMENT_NAME }}
+          path: test-results/
+          retention-days: 30
+      
+      - name: Generate Test Summary
+        if: always()
+        run: |
+          echo "## HTTPYac Integration Tests 🧪" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Environment:** ${{ vars.ENVIRONMENT_NAME }}" >> $GITHUB_STEP_SUMMARY
+          echo "**API Endpoint:** ${{ steps.api_endpoint.outputs.API_ENDPOINT }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f test-results/results.json ]; then
+            PASSED=$(jq '[.[] | select(.result == "success")] | length' test-results/results.json)
+            FAILED=$(jq '[.[] | select(.result == "failure")] | length' test-results/results.json)
+            TOTAL=$(jq 'length' test-results/results.json)
+            
+            echo "### Results" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Passed: $PASSED" >> $GITHUB_STEP_SUMMARY
+            echo "- ❌ Failed: $FAILED" >> $GITHUB_STEP_SUMMARY
+            echo "- 📊 Total: $TOTAL" >> $GITHUB_STEP_SUMMARY
+          fi
+      
+      - name: Azure Logout
+        if: always()
+        run: az logout

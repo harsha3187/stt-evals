@@ -1,0 +1,73 @@
+{
+  "task_type": "stt",
+  "timestamp": "2025-11-12T12:27:39.141542",
+  "session_id": "7b6af8e2-a8c1-43ab-ab19-7069443afd72",
+  "results": {
+    "wer": 0.025,
+    "mer": 0.025,
+    "wip": 0.9506249999999999,
+    "wil": 0.04937500000000006,
+    "cer": 0.0064794816414686825,
+    "word_levenshtein_distance": 0.25,
+    "char_levenshtein_distance": 0.375,
+    "normalized_word_ld": 0.02638888888888889,
+    "normalized_char_ld": 0.0076979472140762464,
+    "wer_rubric": {
+      "raw_value": 0.025,
+      "rubric_score": 4,
+      "rubric_label": "Excellent",
+      "metric_name": "wer"
+    },
+    "mer_rubric": {
+      "raw_value": 0.025,
+      "rubric_score": 4,
+      "rubric_label": "Excellent",
+      "metric_name": "mer"
+    },
+    "wip_rubric": {
+      "raw_value": 0.9506249999999999,
+      "rubric_score": 4,
+      "rubric_label": "Excellent",
+      "metric_name": "wip"
+    },
+    "wil_rubric": {
+      "raw_value": 0.04937500000000006,
+      "rubric_score": 4,
+      "rubric_label": "Excellent",
+      "metric_name": "wil"
+    },
+    "cer_rubric": {
+      "raw_value": 0.0064794816414686825,
+      "rubric_score": 4,
+      "rubric_label": "Excellent",
+      "metric_name": "cer"
+    },
+    "word_ld_rubric": {
+      "raw_value": 0.25,
+      "rubric_score": 4,
+      "rubric_label": "Excellent",
+      "metric_name": "word_levenshtein_distance"
+    },
+    "char_ld_rubric": {
+      "raw_value": 0.375,
+      "rubric_score": 4,
+      "rubric_label": "Excellent",
+      "metric_name": "char_levenshtein_distance"
+    },
+    "normalized_word_ld_rubric": {
+      "raw_value": 0.02638888888888889,
+      "rubric_score": 4,
+      "rubric_label": "Excellent",
+      "metric_name": "normalized_word_ld"
+    },
+    "normalized_char_ld_rubric": {
+      "raw_value": 0.0076979472140762464,
+      "rubric_score": 4,
+      "rubric_label": "Excellent",
+      "metric_name": "normalized_char_ld"
+    },
+    "language": "en",
+    "sample_count": 8,
+    "evaluation_timestamp": "2025-11-12 12:27:39.134704"
+  }
+}

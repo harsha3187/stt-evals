@@ -1,0 +1,147 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "STT Evaluation Dataset Schema",
+  "description": "JSON schema for Speech-to-Text evaluation datasets following ADR-003 specifications",
+  "type": "object",
+  "required": ["id", "reference", "hypothesis", "metadata"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this evaluation sample",
+      "pattern": "^[a-zA-Z0-9_]+$"
+    },
+    "audio_file": {
+      "type": "string",
+      "description": "Optional path to the original audio file (for reference)",
+      "examples": ["librispeech/test-clean/1089/134686/1089-134686-0000.flac"]
+    },
+    "reference": {
+      "type": "string",
+      "description": "Ground truth transcription (human-verified)",
+      "minLength": 1
+    },
+    "hypothesis": {
+      "type": "string", 
+      "description": "ASR model prediction to be evaluated"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the sample",
+      "required": ["dataset", "split", "language"],
+      "properties": {
+        "dataset": {
+          "type": "string",
+          "description": "Source dataset name",
+          "enum": ["librispeech", "common_voice_en", "common_voice_ar", "mgb2", "mgb3", "qasr", "medical_dialogue_en", "arabic_medical_dialogue", "broadcast_news_en", "noisy_speech_en", "arabic_codeswitching", "arabic_multidialect"]
+        },
+        "split": {
+          "type": "string",
+          "description": "Dataset split",
+          "enum": ["train", "validation", "test", "dev"]
+        },
+        "language": {
+          "type": "string",
+          "description": "Primary language code",
+          "enum": ["en", "ar"]
+        },
+        "speaker_id": {
+          "type": "string",
+          "description": "Unique speaker identifier"
+        },
+        "duration_ms": {
+          "type": "integer",
+          "description": "Audio duration in milliseconds",
+          "minimum": 0
+        },
+        "dialect": {
+          "type": "string",
+          "description": "Language dialect (for Arabic)",
+          "enum": ["msa", "levantine", "egyptian", "gulf", "moroccan", "algerian", "tunisian", "sudanese", "iraqi"]
+        },
+        "domain": {
+          "type": "string",
+          "description": "Content domain",
+          "enum": ["medical", "news", "broadcast", "conversational", "youtube", "telephony", "read_speech"]
+        },
+        "role": {
+          "type": "string", 
+          "description": "Speaker role in dialogue",
+          "enum": ["patient", "doctor", "nurse", "anchor", "reporter", "interviewer", "interviewee"]
+        },
+        "accent": {
+          "type": "string",
+          "description": "English accent variety",
+          "enum": ["us_midwest", "us_south", "us_west", "uk_south", "uk_north", "canadian", "australian", "indian"]
+        },
+        "diacritics": {
+          "type": "boolean",
+          "description": "Whether Arabic text includes diacritics"
+        },
+        "codeswitching": {
+          "type": "boolean",
+          "description": "Whether sample contains code-switching"
+        },
+        "secondary_language": {
+          "type": "string",
+          "description": "Secondary language in code-switching",
+          "enum": ["en", "fr", "es"]
+        },
+        "noise_type": {
+          "type": "string",
+          "description": "Type of background noise",
+          "enum": ["clean", "background_chatter", "music", "traffic", "white_noise", "reverb"]
+        },
+        "snr_db": {
+          "type": "number",
+          "description": "Signal-to-noise ratio in decibels"
+        },
+        "audio_quality": {
+          "type": "string",
+          "description": "Audio recording quality",
+          "enum": ["studio", "broadcast", "telephony", "mobile", "webcam", "noisy"]
+        },
+        "channel": {
+          "type": "string", 
+          "description": "Broadcast channel or source"
+        },
+        "genre": {
+          "type": "string",
+          "description": "Content genre",
+          "enum": ["news", "interview", "debate", "lecture", "conversation", "monologue"]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "id": "librispeech_001",
+      "audio_file": "librispeech/test-clean/1089/134686/1089-134686-0000.flac",
+      "reference": "he began a confused complaint against the wizard who had vanished behind the curtain on the left",
+      "hypothesis": "he began a confused complaint against the wizard who had vanished behind the curtain on the left",
+      "metadata": {
+        "dataset": "librispeech",
+        "split": "test-clean", 
+        "speaker_id": "1089",
+        "duration_ms": 4280,
+        "language": "en"
+      }
+    },
+    {
+      "id": "commonvoice_ar_001", 
+      "audio_file": "common_voice/ar/clips/cv_ar_001.mp3",
+      "reference": "مرحبا بك في هذا البرنامج",
+      "hypothesis": "مرحباً بك في هذا البرنامج", 
+      "metadata": {
+        "dataset": "common_voice_ar",
+        "split": "test",
+        "speaker_id": "cv_ar_001",
+        "duration_ms": 2400,
+        "language": "ar",
+        "dialect": "msa",
+        "diacritics": false
+      }
+    }
+  ]
+}

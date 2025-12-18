@@ -1,0 +1,166 @@
+name: Terraform Deploy
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'infra/**'
+  workflow_dispatch:  # Manual trigger
+    inputs:
+      environment:
+        description: 'Environment to deploy'
+        required: true
+        type: choice
+        options:
+          - production
+          - integration
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy to ${{ github.event.inputs.environment || 'production' }}
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment || 'production' }}
+    concurrency:
+      group: terraform-state-${{ github.event.inputs.environment || 'production' }}
+      cancel-in-progress: false  # Don't cancel deployments, queue to prevent lock conflicts
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Determine Environment
+        id: env
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "ENVIRONMENT=${{ github.event.inputs.environment }}" >> $GITHUB_OUTPUT
+            echo "TF_STATE_KEY=${{ github.event.inputs.environment }}.tfstate" >> $GITHUB_OUTPUT
+          else
+            echo "ENVIRONMENT=production" >> $GITHUB_OUTPUT
+            echo "TF_STATE_KEY=production.tfstate" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: |
+            {
+              "clientId": "${{ secrets.AZURE_CLIENT_ID }}",
+              "clientSecret": "${{ secrets.AZURE_CLIENT_SECRET }}",
+              "tenantId": "${{ secrets.AZURE_TENANT_ID }}",
+              "subscriptionId": "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+            }
+          enable-AzPSSession: false
+      
+      - name: Set Terraform Azure Authentication
+        run: |
+          echo "ARM_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }}" >> $GITHUB_ENV
+          echo "ARM_CLIENT_SECRET=${{ secrets.AZURE_CLIENT_SECRET }}" >> $GITHUB_ENV
+          echo "ARM_TENANT_ID=${{ secrets.AZURE_TENANT_ID }}" >> $GITHUB_ENV
+          echo "ARM_SUBSCRIPTION_ID=${{ secrets.AZURE_SUBSCRIPTION_ID }}" >> $GITHUB_ENV
+      
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.0"
+          terraform_wrapper: false  # Needed for output parsing
+      
+      - name: Configure Terraform Backend
+        working-directory: ./infra
+        run: |
+          cat > backend.tfbackend << EOF
+          resource_group_name  = "${{ secrets.TF_BACKEND_RESOURCE_GROUP }}"
+          storage_account_name = "${{ secrets.TF_BACKEND_STORAGE_ACCOUNT }}"
+          container_name       = "${{ secrets.TF_BACKEND_CONTAINER }}"
+          key                  = "${{ steps.env.outputs.TF_STATE_KEY }}"
+          use_azuread_auth     = true
+          EOF
+      
+      - name: Create terraform.tfvars from Environment Secrets
+        working-directory: ./infra
+        run: |
+          cat > terraform.tfvars << EOF
+          subscription_id                       = "${{ secrets.TF_VAR_subscription_id }}"
+          project_name                          = "${{ secrets.TF_VAR_project_name }}"
+          environment                           = "${{ vars.TF_VAR_environment }}"
+          location                              = "${{ secrets.TF_VAR_LOCATION }}"
+          location_short                        = "${{ secrets.TF_VAR_LOCATION_SHORT }}"
+          log_retention_days                    = 30
+          log_analytics_daily_cap_gb            = -1
+          app_insights_retention_days           = 90
+          app_insights_daily_cap_gb             = 10
+          app_insights_sampling_percentage      = 100
+          enable_public_network_access          = true
+          alert_email_receivers                 = ${{ secrets.TF_VAR_alert_email_receivers }}
+          ai_foundry_enabled                    = true
+          ai_foundry_custom_subdomain           = "${{ secrets.TF_VAR_ai_foundry_custom_subdomain }}"
+          gpt41_model_version                   = "2025-04-14"
+          gpt41_deployment_capacity             = 10
+          ai_foundry_disable_local_auth         = true
+          ai_foundry_byok_enabled               = false
+          ai_foundry_bing_custom_search_connection_enabled = true
+          
+          tags = {
+            Environment = "${{ steps.env.outputs.ENVIRONMENT }}"
+            Project     = "CAP Upskilling"
+            ManagedBy   = "Terraform"
+          }
+          EOF
+      
+      - name: Terraform Format Generated Files
+        working-directory: ./infra
+        run: terraform fmt terraform.tfvars
+      
+      - name: Terraform Init
+        working-directory: ./infra
+        run: terraform init -backend-config=backend.tfbackend -lock-timeout=10m
+      
+      - name: Terraform Apply
+        working-directory: ./infra
+        run: terraform apply -auto-approve -input=false -lock-timeout=10m
+      
+      - name: Export Terraform Outputs
+        id: tf_outputs
+        working-directory: ./infra
+        run: |
+          # Export all outputs as JSON for artifact storage
+          terraform output -json > outputs.json
+          
+          # Export specific outputs as GitHub outputs for .env generation
+          echo "app_insights_connection_string=$(terraform output -raw app_insights_connection_string)" >> $GITHUB_OUTPUT
+          echo "ai_foundry_resource_endpoint=$(terraform output -raw ai_foundry_resource_endpoint)" >> $GITHUB_OUTPUT
+          echo "gpt41_deployment_name=$(terraform output -raw gpt41_deployment_name)" >> $GITHUB_OUTPUT
+      
+      - name: Upload Terraform Outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: terraform-outputs-${{ steps.env.outputs.ENVIRONMENT }}
+          path: infra/outputs.json
+          retention-days: 30
+      
+      - name: Generate Deployment Summary
+        run: |
+          echo "## Terraform Deployment Complete ✅" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Environment:** ${{ steps.env.outputs.ENVIRONMENT }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Subscription:** ${{ secrets.AZURE_SUBSCRIPTION_ID }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Key Outputs" >> $GITHUB_STEP_SUMMARY
+          echo "- App Insights Connection String: \`***\`" >> $GITHUB_STEP_SUMMARY
+          echo "- AI Foundry Endpoint: ${{ steps.tf_outputs.outputs.ai_foundry_resource_endpoint }}" >> $GITHUB_STEP_SUMMARY
+          echo "- GPT-4.1 Deployment: ${{ steps.tf_outputs.outputs.gpt41_deployment_name }}" >> $GITHUB_STEP_SUMMARY
+      
+      - name: Cleanup on Failure
+        if: failure()
+        working-directory: ./infra
+        continue-on-error: true
+        run: |
+          echo "⚠️ Deployment failed. Lock should auto-release, but checking state..."
+          # Note: Do NOT force-unlock automatically as it can cause state corruption
+          # If lock persists, use the manual 'Terraform Force Unlock' workflow
+      
+      - name: Azure Logout
+        if: always()
+        run: az logout

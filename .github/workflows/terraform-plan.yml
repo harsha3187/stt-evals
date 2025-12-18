@@ -1,0 +1,152 @@
+name: Terraform Plan
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'infra/**'
+      - '.github/workflows/terraform-*.yml'
+
+permissions:
+  contents: read
+  pull-requests: write  # To comment on PRs
+
+jobs:
+  plan:
+    name: Terraform Plan
+    runs-on: ubuntu-latest
+    environment: production  # Required to access environment-scoped secrets
+    concurrency:
+      group: terraform-state-production
+      cancel-in-progress: false  # Don't cancel, queue instead to prevent lock conflicts
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: |
+            {
+              "clientId": "${{ secrets.AZURE_CLIENT_ID }}",
+              "clientSecret": "${{ secrets.AZURE_CLIENT_SECRET }}",
+              "tenantId": "${{ secrets.AZURE_TENANT_ID }}",
+              "subscriptionId": "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+            }
+          enable-AzPSSession: false
+      
+      - name: Set Terraform Azure Authentication
+        run: |
+          echo "ARM_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }}" >> $GITHUB_ENV
+          echo "ARM_CLIENT_SECRET=${{ secrets.AZURE_CLIENT_SECRET }}" >> $GITHUB_ENV
+          echo "ARM_TENANT_ID=${{ secrets.AZURE_TENANT_ID }}" >> $GITHUB_ENV
+          echo "ARM_SUBSCRIPTION_ID=${{ secrets.AZURE_SUBSCRIPTION_ID }}" >> $GITHUB_ENV
+      
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.0"
+      
+      - name: Configure Terraform Backend
+        working-directory: ./infra
+        run: |
+          cat > backend.tfbackend << EOF
+          resource_group_name  = "${{ secrets.TF_BACKEND_RESOURCE_GROUP }}"
+          storage_account_name = "${{ secrets.TF_BACKEND_STORAGE_ACCOUNT }}"
+          container_name       = "${{ secrets.TF_BACKEND_CONTAINER }}"
+          key                  = "production.tfstate"
+          use_azuread_auth     = true
+          EOF
+      
+      - name: Create terraform.tfvars
+        working-directory: ./infra
+        run: |
+          cat > terraform.tfvars << EOF
+          subscription_id                       = "${{ secrets.TF_VAR_subscription_id }}"
+          project_name                          = "${{ secrets.TF_VAR_project_name }}"
+          environment                           = "${{ vars.TF_VAR_environment }}"
+          location                              = "${{ secrets.TF_VAR_LOCATION }}"
+          location_short                        = "${{ secrets.TF_VAR_LOCATION_SHORT }}"
+          log_retention_days                    = 30
+          log_analytics_daily_cap_gb            = -1
+          app_insights_retention_days           = 90
+          app_insights_daily_cap_gb             = 10
+          app_insights_sampling_percentage      = 100
+          enable_public_network_access          = true
+          alert_email_receivers                 = ${{ secrets.TF_VAR_alert_email_receivers }}
+          ai_foundry_enabled                    = true
+          ai_foundry_custom_subdomain           = "${{ secrets.TF_VAR_ai_foundry_custom_subdomain }}"
+          gpt41_model_version                   = "2025-04-14"
+          gpt41_deployment_capacity             = 10
+          ai_foundry_disable_local_auth         = true
+          ai_foundry_byok_enabled               = false
+          ai_foundry_bing_custom_search_connection_enabled = true
+          
+          tags = {
+            Environment = "Production"
+            Project     = "CAP Upskilling"
+            ManagedBy   = "Terraform"
+          }
+          EOF
+      
+      - name: Terraform Format Generated Files
+        working-directory: ./infra
+        run: terraform fmt terraform.tfvars
+      
+      - name: Terraform Init
+        working-directory: ./infra
+        run: terraform init -backend-config=backend.tfbackend -lock-timeout=5m
+      
+      - name: Terraform Format Check
+        working-directory: ./infra
+        run: terraform fmt -check -recursive
+      
+      - name: Terraform Validate
+        working-directory: ./infra
+        run: terraform validate
+      
+      - name: Terraform Plan
+        working-directory: ./infra
+        run: |
+          terraform plan -out=tfplan -input=false -lock-timeout=5m
+          terraform show -no-color tfplan > plan.txt
+      
+      - name: Comment PR with Plan
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const plan = fs.readFileSync('./infra/plan.txt', 'utf8');
+            const truncatedPlan = plan.length > 65000 ? plan.substring(0, 65000) + '\n\n... (truncated)' : plan;
+            
+            const output = `#### Terraform Plan 📖
+            <details><summary>Show Plan</summary>
+            
+            \`\`\`terraform
+            ${truncatedPlan}
+            \`\`\`
+            
+            </details>
+            
+            *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            });
+      
+      - name: Cleanup on Failure
+        if: failure()
+        working-directory: ./infra
+        continue-on-error: true
+        run: |
+          echo "⚠️ Workflow failed. Lock should auto-release, but checking state..."
+          # Note: Do NOT force-unlock automatically as it can cause state corruption
+          # If lock persists, use the manual 'Terraform Force Unlock' workflow
+      
+      - name: Azure Logout
+        if: always()
+        run: az logout

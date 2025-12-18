@@ -1,0 +1,7 @@
+inventory:
+- source: DirectOwners
+  items:
+  - id: mahmutcanga@microsoft.com
+  - id: chassweeting@microsoft.com
+  - id: virahnwalia@microsoft.com
+  isProduction: false

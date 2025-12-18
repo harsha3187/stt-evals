@@ -1,0 +1,20 @@
+# Ignore downloaded and generated data
+data/ahqad/raw/
+data/ahqad/*.csv
+data/ahqad/*.zip
+
+# Keep the structure
+!data/ahqad/.gitkeep
+!data/.gitkeep
+
+# Ignore test results
+results/*.json
+!results/.gitkeep
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment files
+.env

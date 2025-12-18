@@ -1,0 +1,38 @@
+# English Diarization Reference (Ground Truth)
+# Based on LibriSpeech and other English datasets with medical dialogue scenarios
+# Format: SPEAKER <file-id> <channel> <start-time> <duration> <ortho> <stype> <name> <conf>
+
+# Medical consultation example - file1
+SPEAKER medical_consult_001 1 0.0 3.2 <NA> <NA> doctor 1.0
+SPEAKER medical_consult_001 1 3.5 2.1 <NA> <NA> patient 1.0
+SPEAKER medical_consult_001 1 6.0 4.5 <NA> <NA> doctor 1.0
+SPEAKER medical_consult_001 1 11.2 1.8 <NA> <NA> patient 1.0
+SPEAKER medical_consult_001 1 13.5 3.0 <NA> <NA> doctor 1.0
+
+# News interview example - file2
+SPEAKER news_interview_001 1 0.0 2.8 <NA> <NA> anchor 1.0
+SPEAKER news_interview_001 1 3.0 5.5 <NA> <NA> guest 1.0
+SPEAKER news_interview_001 1 8.8 1.2 <NA> <NA> anchor 1.0
+SPEAKER news_interview_001 1 10.2 4.0 <NA> <NA> guest 1.0
+SPEAKER news_interview_001 1 14.5 2.3 <NA> <NA> anchor 1.0
+
+# Telephony conversation - file3
+SPEAKER phone_call_001 1 0.0 1.5 <NA> <NA> caller 1.0
+SPEAKER phone_call_001 1 2.0 2.8 <NA> <NA> agent 1.0
+SPEAKER phone_call_001 1 5.2 3.1 <NA> <NA> caller 1.0
+SPEAKER phone_call_001 1 8.8 2.0 <NA> <NA> agent 1.0
+SPEAKER phone_call_001 1 11.0 1.5 <NA> <NA> caller 1.0
+
+# Multi-speaker meeting - file4
+SPEAKER meeting_001 1 0.0 2.0 <NA> <NA> chair 1.0
+SPEAKER meeting_001 1 2.5 3.5 <NA> <NA> participant1 1.0
+SPEAKER meeting_001 1 6.5 2.2 <NA> <NA> participant2 1.0
+SPEAKER meeting_001 1 9.0 1.8 <NA> <NA> chair 1.0
+SPEAKER meeting_001 1 11.2 2.5 <NA> <NA> participant1 1.0
+SPEAKER meeting_001 1 14.0 1.0 <NA> <NA> participant2 1.0
+
+# Overlapping speech scenario - file5  
+SPEAKER overlap_test_001 1 0.0 4.0 <NA> <NA> speaker1 1.0
+SPEAKER overlap_test_001 1 2.0 3.0 <NA> <NA> speaker2 0.8
+SPEAKER overlap_test_001 1 5.5 2.5 <NA> <NA> speaker1 1.0
+SPEAKER overlap_test_001 1 8.5 1.5 <NA> <NA> speaker2 1.0

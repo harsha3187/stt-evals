@@ -1,0 +1,195 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Diarization Evaluation Dataset Schema",
+  "description": "JSON schema for Speaker Diarization evaluation datasets following ADR-003 specifications",
+  "type": "object",
+  "required": ["id", "reference_rttm", "hypothesis_rttm", "metadata"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this diarization evaluation sample",
+      "pattern": "^[a-zA-Z0-9_]+$"
+    },
+    "audio_file": {
+      "type": "string",
+      "description": "Optional path to the original audio file (for reference)",
+      "examples": ["medical_dialogue/english/consult_001.wav"]
+    },
+    "reference_rttm": {
+      "type": "array",
+      "description": "Ground truth speaker segments (human-annotated)",
+      "items": {
+        "type": "object",
+        "required": ["speaker_id", "start_time", "duration"],
+        "properties": {
+          "speaker_id": {
+            "type": "string",
+            "description": "Speaker identifier in ground truth"
+          },
+          "start_time": {
+            "type": "number",
+            "description": "Segment start time in seconds",
+            "minimum": 0
+          },
+          "duration": {
+            "type": "number", 
+            "description": "Segment duration in seconds",
+            "minimum": 0
+          },
+          "confidence": {
+            "type": "number",
+            "description": "Annotation confidence (typically 1.0 for ground truth)",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "hypothesis_rttm": {
+      "type": "array",
+      "description": "Diarization system predictions to be evaluated",
+      "items": {
+        "type": "object",
+        "required": ["speaker_id", "start_time", "duration"],
+        "properties": {
+          "speaker_id": {
+            "type": "string",
+            "description": "Speaker identifier from diarization system"
+          },
+          "start_time": {
+            "type": "number",
+            "description": "Segment start time in seconds",
+            "minimum": 0
+          },
+          "duration": {
+            "type": "number",
+            "description": "Segment duration in seconds", 
+            "minimum": 0
+          },
+          "confidence": {
+            "type": "number",
+            "description": "System confidence score",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the diarization sample",
+      "required": ["dataset", "split", "language", "num_speakers"],
+      "properties": {
+        "dataset": {
+          "type": "string",
+          "description": "Source dataset name",
+          "enum": ["medical_dialogue_en", "arabic_medical_dialogue", "broadcast_news_en", "arabic_broadcast_news", "telephony_en", "telephony_ar", "meeting_en", "meeting_ar", "arabic_codeswitching", "arabic_multidialect", "librispeech", "mgb2", "mgb3", "common_voice_en", "common_voice_ar"]
+        },
+        "split": {
+          "type": "string",
+          "description": "Dataset split",
+          "enum": ["train", "validation", "test", "dev"]
+        },
+        "language": {
+          "type": "string",
+          "description": "Primary language code",
+          "enum": ["en", "ar"]
+        },
+        "dialect": {
+          "type": "string",
+          "description": "Language dialect (for Arabic)",
+          "enum": ["msa", "levantine", "egyptian", "gulf", "moroccan", "algerian", "tunisian", "sudanese", "iraqi"]
+        },
+        "domain": {
+          "type": "string",
+          "description": "Content domain",
+          "enum": ["medical", "news", "broadcast", "conversational", "meeting", "telephony", "read_speech"]
+        },
+        "total_duration_s": {
+          "type": "number",
+          "description": "Total audio duration in seconds",
+          "minimum": 0
+        },
+        "num_speakers": {
+          "type": "integer",
+          "description": "Number of speakers in the recording",
+          "minimum": 1
+        },
+        "speaker_roles": {
+          "type": "array",
+          "description": "Roles of the speakers",
+          "items": {
+            "type": "string",
+            "enum": ["doctor", "patient", "nurse", "anchor", "reporter", "guest", "interviewer", "interviewee", "moderator", "participant", "caller", "agent", "speaker1", "speaker2", "chair"]
+          }
+        },
+        "audio_quality": {
+          "type": "string",
+          "description": "Audio recording quality",
+          "enum": ["studio", "broadcast", "telephony", "mobile", "webcam", "noisy"]
+        },
+        "overlap_percentage": {
+          "type": "number",
+          "description": "Percentage of overlapping speech",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "accent": {
+          "type": "string",
+          "description": "English accent variety",
+          "enum": ["us_midwest", "us_south", "us_west", "uk_south", "uk_north", "canadian", "australian", "indian"]
+        },
+        "codeswitching": {
+          "type": "boolean",
+          "description": "Whether recording contains code-switching"
+        },
+        "secondary_language": {
+          "type": "string",
+          "description": "Secondary language in code-switching",
+          "enum": ["en", "fr", "es"]
+        },
+        "recording_conditions": {
+          "type": "string",
+          "description": "Recording environment conditions",
+          "enum": ["clean", "background_chatter", "music", "traffic", "white_noise", "reverb", "noisy"]
+        },
+        "channel": {
+          "type": "string",
+          "description": "Broadcast channel or source"
+        },
+        "genre": {
+          "type": "string",
+          "description": "Content genre",
+          "enum": ["news", "interview", "debate", "lecture", "conversation", "monologue", "consultation"]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "id": "medical_consult_001",
+      "audio_file": "medical_dialogue/english/consult_001.wav",
+      "reference_rttm": [
+        {"speaker_id": "doctor", "start_time": 0.0, "duration": 3.2, "confidence": 1.0},
+        {"speaker_id": "patient", "start_time": 3.5, "duration": 2.1, "confidence": 1.0}
+      ],
+      "hypothesis_rttm": [
+        {"speaker_id": "spk_001", "start_time": 0.1, "duration": 3.0, "confidence": 0.95},
+        {"speaker_id": "spk_002", "start_time": 3.6, "duration": 2.0, "confidence": 0.88}
+      ],
+      "metadata": {
+        "dataset": "medical_dialogue_en",
+        "split": "validation",
+        "language": "en",
+        "domain": "medical",
+        "total_duration_s": 16.5,
+        "num_speakers": 2,
+        "speaker_roles": ["doctor", "patient"],
+        "audio_quality": "studio",
+        "overlap_percentage": 0.0
+      }
+    }
+  ]
+}

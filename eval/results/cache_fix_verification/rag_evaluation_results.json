@@ -1,0 +1,62 @@
+{
+  "task_type": "rag",
+  "timestamp": "2025-11-17T13:05:52.729012",
+  "session_id": "2cb1e1ec-8a15-45e8-8fd6-b8140cb9e088",
+  "results": {
+    "summarization_metrics": {
+      "rouge_1_f1": 0.7752355639135848,
+      "rouge_2_f1": 0.5148330382108272,
+      "rouge_l_f1": 0.678468022148281,
+      "meteor_score": 0.6788036989995004,
+      "semantic_similarity_cosine": 0.0,
+      "semantic_similarity_euclidean": 0.0,
+      "clinical_embedding_similarity": 0.0,
+      "rouge_1_f1_rubric": {
+        "raw_value": 0.7752355639135848,
+        "rubric_score": 3,
+        "rubric_label": "Good",
+        "metric_name": "rouge_1_f1"
+      },
+      "rouge_2_f1_rubric": {
+        "raw_value": 0.5148330382108272,
+        "rubric_score": 3,
+        "rubric_label": "Good",
+        "metric_name": "rouge_2_f1"
+      },
+      "rouge_l_f1_rubric": {
+        "raw_value": 0.678468022148281,
+        "rubric_score": 3,
+        "rubric_label": "Good",
+        "metric_name": "rouge_l_f1"
+      },
+      "meteor_score_rubric": {
+        "raw_value": 0.6788036989995004,
+        "rubric_score": 3,
+        "rubric_label": "Good",
+        "metric_name": "meteor_score"
+      },
+      "semantic_similarity_cosine_rubric": {
+        "raw_value": 0.0,
+        "rubric_score": 1,
+        "rubric_label": "Poor",
+        "metric_name": "semantic_similarity_cosine"
+      },
+      "semantic_similarity_euclidean_rubric": {
+        "raw_value": 0.0,
+        "rubric_score": 1,
+        "rubric_label": "Poor",
+        "metric_name": "semantic_similarity_euclidean"
+      },
+      "clinical_embedding_similarity_rubric": {
+        "raw_value": 0.0,
+        "rubric_score": 1,
+        "rubric_label": "Poor",
+        "metric_name": "clinical_embedding_similarity"
+      },
+      "language": "en",
+      "sample_count": 23,
+      "evaluation_timestamp": "2025-11-17 13:05:52.724786"
+    },
+    "evaluation_timestamp": "2025-11-17 13:05:52.724795"
+  }
+}
