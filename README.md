@@ -7,20 +7,13 @@ Multi-agent AI system built with Microsoft Agent Framework, featuring a Python F
 0. [Project overview](docs/0-project-overview.md) - Architecture, tech stack, and folder structure
 1. [Getting started](docs/1-getting-started.md) - Set up your local development environment
 2. [Infrastructure setup](docs/2-infra.md) - Deploy Azure resources with Terraform
-3. [Streaming endpoints](docs/3-streaming-endpoints.md) - Real-time SSE chat responses
-4. [HAPI FHIR setup](docs/4-hapi-fhir-setup.md) - Configure FHIR server for clinical data
-5. [Evaluations](docs/5-evals.md) - Testing and quality metrics
-6. [Telemetry](docs/6-telemetry.md) - Generate test datasets
-7. [Frontend development](docs/7-frontend-development.md) - Next.js application setup
-8. [GitHub Actions CD setup](docs/8-github-cd-setup.md) - Configure GitHub Actions for CI/CD
+3. [Evaluations](docs/5-evals.md) - Testing and quality metrics
+4. [GitHub Actions CD setup](docs/8-github-cd-setup.md) - Configure GitHub Actions for CI/CD
 
 ADRs and service-specific documentation: 
 
 - [ADRs (architecture decision records)](docs/adrs/)
-- [Speech to text (STT) service](docs/stt-service/README.md) - transcription, translation & medical term boosting
 - [Patient profile tool](docs/patient-profile-tool/)
-- [Evals for image extraction](docs/evals/image_extraction/README.md)
-
 
 ## Quick start
 
